@@ -6,13 +6,16 @@ use App\Modules\Frontend\Models\HomeModel;
 
 class Home extends Controller
 {
+    protected $session;
+
+    function __construct()
+    {
+        $this->session = \Config\Services::session();
+        $this->session->start();
+    }
     public function index()
     {
-        $data = [
-            'title' => 'Home Page',
-            'view' => 'land/data',
-            'data' => 'Hello World from Frontend Module -> Home!'
-        ];
-        return view('welcome_message');
+        $data['title'] = 'Home';
+        echo view('\App\Modules\Frontend\Views\Home\index', $data);
     }
 }

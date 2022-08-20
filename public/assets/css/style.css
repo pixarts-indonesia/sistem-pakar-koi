@@ -316,7 +316,7 @@ button {
      position: relative;
 }
 
-.banner_main::before {
+/* .banner_main::before {
      position: absolute;
      bottom: -63px;
      right: 17%;
@@ -327,7 +327,7 @@ button {
      z-index: 9999;
      height: 159px;
      cursor: pointer;
-}
+} */
 
 .text-bg {
      text-align: left;
