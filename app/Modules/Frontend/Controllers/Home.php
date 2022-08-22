@@ -16,6 +16,7 @@ class Home extends Controller
     public function index()
     {
         $data['title'] = 'Home';
+        $data['main'] = true;
         echo view('\App\Modules\Frontend\Views\Home\index', $data);
     }
 }
