@@ -6,17 +6,10 @@ use App\Modules\Frontend\Models\HomeModel;
 
 class Home extends Controller
 {
-    protected $session;
-
-    function __construct()
-    {
-        $this->session = \Config\Services::session();
-        $this->session->start();
-    }
     public function index()
     {
         $data['title'] = 'Home';
         $data['main'] = true;
-        echo view('\App\Modules\Frontend\Views\Home\index', $data);
+        return view('App\Modules\Frontend\Views\Home\index', $data);
     }
 }

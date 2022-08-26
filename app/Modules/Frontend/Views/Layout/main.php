@@ -1,3 +1,8 @@
+<?php
+use Config\Services;
+$request = (new Services)::request();
+$uri = $request->uri->getSegment(1);
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -27,7 +32,16 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
     </head>
     <!-- body -->
-    <body class="main-layout">
+    <body class="main-layout inner_header contact_page">
+        <?php if (session()->getFlashData('error')) : ?>
+            <?= view_cell('\App\Libraries\Widget::error'); ?>
+        <?php endif; ?>
+        <?php if (session()->getFlashData('info')) : ?>
+            <?= view_cell('\App\Libraries\Widget::info'); ?>
+        <?php endif; ?>
+        <?php if (session()->getFlashData('success')) : ?>
+            <?= view_cell('\App\Libraries\Widget::success'); ?>
+        <?php endif; ?>
         <?php if (isset($main)) : ?>
             <!-- header -->
             <header>
@@ -51,29 +65,26 @@
                                     </button>
                                     <div class="collapse navbar-collapse" id="navbarsExample04">
                                         <ul class="navbar-nav mr-auto">
-                                            <li class="nav-item active">
+                                            <li class="nav-item <?= (!$uri) ? 'active' : ''; ?> ">
                                                 <a class="nav-link" href="<?= base_url('/'); ?>">Home</a>
                                             </li>
-                                            <?php if (isset($this->session)) : ?>
-                                                <li class="nav-item">
-                                                    <a class="nav-link" href="<?= base_url('/riwayat'); ?>">Riwayat</a>
-                                                </li>
+                                            <?php if (session('user')) : ?>
                                                 <li class="nav-item">
                                                     <a class="nav-link" href="<?= base_url('/diagnosa'); ?>">Diagnosa</a>
                                                 </li>
-                                                <li class="nav-item">
-                                                    <a class="nav-link" href="<?= base_url('/kontak'); ?>">Kontak</a>
+                                                <li class="nav-item <?= ($uri === 'responden') ? 'active' : ''; ?>">
+                                                    <a class="nav-link" href="<?= base_url('/responden'); ?>">Responden</a>
                                                 </li>
                                                 <li class="nav-item">
                                                     <a class="nav-link" href="<?= base_url('/akun'); ?>">Akun</a>
                                                 </li>
-                                            <?php endif; ?>
-                                            <?php if (!isset($this->session)) : ?>
                                                 <li class="nav-item">
-                                                    <a class="nav-link" href="<?= base_url('/kontak'); ?>">Kontak</a>
+                                                    <a class="nav-link" href="<?= base_url('/logout'); ?>">Keluar</a>
                                                 </li>
+                                            <?php endif; ?>
+                                            <?php if (!session('user')) : ?>
                                                 <li class="nav-item">
-                                                    <a class="nav-link" href="<?= base_url('/login'); ?>">Login</a>
+                                                    <a class="nav-link" href="<?= base_url('/login'); ?>">Masuk</a>
                                                 </li>
                                             <?php endif; ?>
                                         </ul>
@@ -118,7 +129,7 @@
                                 <ul class="link_menu">
                                     <li><a href="#">Halaman Home</a></li>
                                     <li><a href="#">Halaman Riwayat</a></li>
-                                    <li><a href="#">Halaman Kontak</a></li>
+                                    <li><a href="#">Halaman Masukan</a></li>
                                     <li><a href="#">Halaman Akun</a></li>
                                     <li><a href="#">Halaman Login</a></li>
                                 </ul>

@@ -1,4 +1,4 @@
-<?= $this->extend('layout/main') ?>
+<?= $this->extend('App\Modules\Frontend\Views\Layout\main') ?>
 
 <?= $this->section('content') ?>
     <div class="content">
