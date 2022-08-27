@@ -53,7 +53,9 @@ $uri = $request->uri->getSegment(1);
                                 <div class="full">
                                     <div class="center-desk">
                                         <div class="logo">
-                                            <h1 class="text-white">Sistem Pakar</h1>
+                                            <a href="<?= base_url('/'); ?>">
+                                                <h1 class="text-white">Sistem Pakar</h1>
+                                            </a>
                                         </div>
                                     </div>
                                 </div>
@@ -69,13 +71,13 @@ $uri = $request->uri->getSegment(1);
                                                 <a class="nav-link" href="<?= base_url('/'); ?>">Home</a>
                                             </li>
                                             <?php if (session('user')) : ?>
-                                                <li class="nav-item">
+                                                <li class="nav-item <?= ($uri === 'diagnosa') ? 'active' : ''; ?>">
                                                     <a class="nav-link" href="<?= base_url('/diagnosa'); ?>">Diagnosa</a>
                                                 </li>
                                                 <li class="nav-item <?= ($uri === 'responden') ? 'active' : ''; ?>">
                                                     <a class="nav-link" href="<?= base_url('/responden'); ?>">Responden</a>
                                                 </li>
-                                                <li class="nav-item">
+                                                <li class="nav-item <?= ($uri === 'akun') ? 'active' : ''; ?>">
                                                     <a class="nav-link" href="<?= base_url('/akun'); ?>">Akun</a>
                                                 </li>
                                                 <li class="nav-item">
@@ -100,7 +102,7 @@ $uri = $request->uri->getSegment(1);
         <?php endif; ?>
 
         <!-- content -->
-        <main role="main" class="flex-shrink-0">
+        <main role="main" class="flex-shrink-0 bg-light">
             <?= $this->renderSection('content') ?>
         </main>
         <!-- end content -->
@@ -127,17 +129,16 @@ $uri = $request->uri->getSegment(1);
                             <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6">
                                 <h3>Link</h3>
                                 <ul class="link_menu">
-                                    <li><a href="#">Halaman Home</a></li>
-                                    <li><a href="#">Halaman Riwayat</a></li>
-                                    <li><a href="#">Halaman Masukan</a></li>
-                                    <li><a href="#">Halaman Akun</a></li>
-                                    <li><a href="#">Halaman Login</a></li>
+                                    <li><a href="<?= base_url('/'); ?>">Halaman Home</a></li>
+                                    <li><a href="<?= base_url('diagnosa'); ?>">Halaman Diagnosa</a></li>
+                                    <li><a href="<?= base_url('responden'); ?>">Halaman Responden</a></li>
+                                    <li><a href="<?= base_url('akun'); ?>">Halaman Akun</a></li>
                                 </ul>
                             </div>
                             <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6">
                                 <h3>Services</h3>
                                 <ul class="link_menu">
-                                    <li><a href="#">Diagnosa Sekarang</a></li>
+                                    <li><a href="<?= base_url('diagnosa'); ?>">Diagnosa Sekarang</a></li>
                                 </ul>
                             </div>
                             <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6">

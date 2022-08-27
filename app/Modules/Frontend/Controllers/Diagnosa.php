@@ -2,6 +2,7 @@
 namespace App\Modules\Frontend\Controllers;
 
 use CodeIgniter\Controller;
+use Config\Services;
 use App\Modules\Frontend\Models\DiagnosaModel;
 
 class Diagnosa extends Controller
@@ -10,7 +11,7 @@ class Diagnosa extends Controller
 
     function __construct()
     {
-        $this->session = \Config\Services::session();
+        $this->session = Services::session();
         $this->session->start();
     }
 
@@ -19,12 +20,9 @@ class Diagnosa extends Controller
         if (!$this->session->get('user')) {
             return redirect()->to('login')->with('error', 'Login terlebih dahulu');
         }
+        $data['title'] = 'Diagnosa';
+        $data['main'] = true;
 
-        $data = [
-            'title' => 'Diagnosa Page',
-            'view' => 'land/data',
-            'data' => 'Hello World from Frontend Module -> Diagnosa!'
-        ];
-        return view('welcome_message');
+        return view('App\Modules\Frontend\Views\Diagnosa\index', $data);
     }
 }
