@@ -9,6 +9,7 @@ $routes->group('', ['namespace' => 'App\Modules\Frontend\Controllers'], function
 
 	/*** Route for Akun ***/
 	$subroutes->add('akun', 'Akun::index');
+	$subroutes->add('akun/ubah', 'Akun::update');
 
 	/*** Route for Auth ***/
 	$subroutes->add('login', 'Auth::login');

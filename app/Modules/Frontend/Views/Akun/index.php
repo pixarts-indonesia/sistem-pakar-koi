@@ -21,26 +21,31 @@
                 <hr>
                 <div class="d-flex justify-content-between">
                     <p class="text-dark">Nama</p>
-                    <p class="text-dark"><?= session('user')->username; ?></p>
+                    <p class="text-dark"><?= $user['nama'] ?? '-'; ?></p>
+                </div>
+                <hr>
+                <div class="d-flex justify-content-between">
+                    <p class="text-dark">Username</p>
+                    <p class="text-dark"><?= $user['username'] ?? '-'; ?></p>
                 </div>
                 <hr>
                 <div class="d-flex justify-content-between">
                     <p class="text-dark">Email</p>
-                    <p class="text-dark">-</p>
+                    <p class="text-dark"><?= $user['email'] ?? '-'; ?></p>
                 </div>
                 <hr>
                 <div class="d-flex justify-content-between">
                     <p class="text-dark">Nomor HP</p>
-                    <p class="text-dark">-</p>
+                    <p class="text-dark"><?= $user['telp'] ?? '-'; ?></p>
                 </div>
                 <hr>
                 <div class="d-flex justify-content-between">
                     <p class="text-dark">Alamat</p>
-                    <p class="text-dark">-</p>
+                    <p class="text-dark"><?= $user['alamat'] ?? '-'; ?></p>
                 </div>
                 <hr>
                 <div class="col-12 text-center pt-5">
-                    <button class="read_more"> Ubah</button>
+                    <a class="read_more" href="<?= base_url('akun/ubah'); ?>"> Ubah</a>
                 </div>
             </div>
         </div>

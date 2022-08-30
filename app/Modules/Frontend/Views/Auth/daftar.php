@@ -14,27 +14,42 @@
                                 <h3>Daftar</h3>
                                 <p class="mb-4">Daftar terlebih dahulu jika kamu tidak memiliki akun.</p>
                             </div>
-                            <form action="#" method="post">
-                                <div class="form-group first">
-                                    <label for="nama">Nama</label>
-                                    <input type="text" class="form-control" id="nama">
+                            <?php if($validation): ?>
+                                <div class="form-group pb-1">
+                                    <div class="alert alert-danger" role="alert">
+                                        <?= service('validation')->listErrors() ?>
+                                    </div>
                                 </div>
-                                <div class="form-group first">
-                                    <label for="username">Username</label>
-                                    <input type="text" class="form-control" id="username">
+                            <?php endif; ?>
+                            <?= form_open('', ['method' => 'POST']); ?>
+                                <div class="form-group <?= (isset($params->nama)) ? 'field--not-empty' : '' ?>">
+                                    <?= form_label('Nama', 'nama'); ?>
+                                    <?= form_input(['class' => 'form-control', 'type' => 'text', 'name' => 'nama', 'value' => $params->nama ?? '']) ?>
                                 </div>
-                                <div class="form-group first">
-                                    <label for="email">Email</label>
-                                    <input type="text" class="form-control" id="email">
+                                <div class="form-group <?= (isset($params->username)) ? 'field--not-empty' : '' ?>">
+                                    <?= form_label('Username', 'username'); ?>
+                                    <?= form_input(['class' => 'form-control', 'type' => 'text', 'name' => 'username', 'value' => $params->username ?? '']) ?>
                                 </div>
-                                <div class="form-group first">
-                                    <label for="password">Password</label>
-                                    <input type="text" class="form-control" id="password">
+                                <div class="form-group <?= (isset($params->email)) ? 'field--not-empty' : '' ?>">
+                                    <?= form_label('Email', 'email'); ?>
+                                    <?= form_input(['class' => 'form-control', 'type' => 'text', 'name' => 'email', 'value' => $params->email ?? '']) ?>
+                                </div>
+                                <div class="form-group <?= (isset($params->telp)) ? 'field--not-empty' : '' ?>">
+                                    <?= form_label('Telp', 'telp'); ?>
+                                    <?= form_input(['class' => 'form-control', 'type' => 'text', 'name' => 'telp', 'value' => $params->telp ?? '']) ?>
+                                </div>
+                                <div class="form-group <?= (isset($params->alamat)) ? 'field--not-empty' : '' ?>">
+                                    <?= form_label('Alamat', 'alamat', ['class' => 'alamat']); ?>
+                                    <?= form_textarea(['class' => 'form-control', 'type' => 'text', 'name' => 'alamat', 'rows' => '5', 'value' => $params->alamat ?? '']) ?>
+                                </div>
+                                <div class="form-group <?= (isset($params->password)) ? 'field--not-empty' : '' ?>">
+                                    <?= form_label('Password', 'password'); ?>
+                                    <?= form_input(['class' => 'form-control', 'type' => 'text', 'name' => 'password', 'value' => $params->password ?? '']) ?>
                                 </div>
                                 <button type="submit" class="btn text-white btn-block btn-primary">
                                     <span class="icon-daftar"></span> Daftar
                                 </button>
-                            </form>
+                            <?= form_close(); ?>
                             <div class="d-flex justify-content-between">
                                 <a href="<?= base_url('/'); ?>" rel="noopener noreferrer">
                                     <span class="d-block text-left my-4 text-primary">

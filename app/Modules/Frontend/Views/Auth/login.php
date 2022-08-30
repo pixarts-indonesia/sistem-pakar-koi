@@ -14,14 +14,21 @@
                             <h3>Login to <strong>Sistem Pakar</strong></h3>
                             <p class="mb-4">Masuk untuk menyimpan riwayat diagnosa ikan koi kamu.</p>
                         </div>
-                        <form action="<?= base_url('login'); ?>" method="POST">
-                            <div class="form-group first">
-                                <label for="username">Username</label>
-                                <input type="text" class="form-control" name="username" id="username">
+                        <?php if($validation): ?>
+                            <div class="form-group pb-1">
+                                <div class="alert alert-danger" role="alert">
+                                    <?= service('validation')->listErrors() ?>
+                                </div>
                             </div>
-                            <div class="form-group last mb-4">
-                                <label for="password">Password</label>
-                                <input type="password" class="form-control" name="password" id="password">
+                        <?php endif; ?>
+                        <?= form_open('', ['method' => 'POST']); ?>
+                            <div class="form-group <?= (isset($params->username)) ? 'field--not-empty' : '' ?>">
+                                <?= form_label('Username', 'username'); ?>
+                                <?= form_input(['class' => 'form-control', 'type' => 'text', 'name' => 'username', 'value' => $params->username ?? '']) ?>
+                            </div>
+                            <div class="form-group <?= (isset($params->password)) ? 'field--not-empty' : '' ?>">
+                                <?= form_label('Password', 'password'); ?>
+                                <?= form_input(['class' => 'form-control', 'type' => 'text', 'name' => 'password', 'value' => $params->password ?? '']) ?>
                             </div>
                             
                             <div class="d-flex mb-5 align-items-center">
@@ -34,7 +41,7 @@
                             <button type="submit" class="btn text-white btn-block btn-primary">
                                 <span class="icon-login"></span> Login
                             </button>
-                        </form>
+                        <?= form_close(); ?>
                         <div class="d-flex justify-content-between">
                             <a href="<?= base_url('/'); ?>" rel="noopener noreferrer">
                                 <span class="d-block text-left my-4 text-primary">
