@@ -10,13 +10,16 @@ class Akun extends Controller
     protected $request;
     protected $session;
     protected $models;
+    protected $validation;
 
     function __construct()
     {
+        helper(['url', 'form']);
         $this->request = Services::request();
         $this->session = Services::session();
         $this->session->start();
         $this->models = new AkunModel;
+        $this->validation = Services::validation();
     }
 
     public function index()
@@ -25,7 +28,7 @@ class Akun extends Controller
             return redirect()->to('login')->with('error', 'Login terlebih dahulu');
         }
 
-        $data['user'] = $this->models->where(['id' => $this->session->get('user')->id])->get()->getRowArray();
+        $data['user'] = $this->models->getData(['id' => $this->session->get('user')->id]);
         $data['title'] = 'Akun';
         $data['main'] = true;
 
@@ -37,11 +40,23 @@ class Akun extends Controller
         if (!$this->session->get('user')) {
             return redirect()->to('login')->with('error', 'Login terlebih dahulu');
         }
-        if ($this->request->getPost()) {
+
+        $this->validation->setRules($this->models->validationRules);
+        $validation = $this->validation->withRequest($this->request)->run();
+
+        if ($validation) {
             $post = (object)$this->request->getPost();
-            return redirect()->to('akun')->with('success', 'Berhasil mengubah data');
+            $post->id = $this->session->get('user')->id;
+            if ($this->models->update($post->id, $post)) {
+                $post = (object)$this->request->getPost();
+                return redirect()->to('akun')->with('success', 'Berhasil mengubah data');
+            }
+            return redirect()->to('/daftar')->with('error', 'Terjadi masalah silahkan ulang beberapa saat lagi');
         }
+
         $data['title'] = 'Ubah Akun';
+        $data['validation'] = ($this->request->getPost()) ? true : false;
+        $data['params'] = $this->models->getData(['id' => $this->session->get('user')->id]);
         $data['main'] = true;
 
         return view('App\Modules\Frontend\Views\Akun\update', $data);

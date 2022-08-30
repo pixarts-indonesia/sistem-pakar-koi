@@ -27,7 +27,7 @@ class AkunModel extends Model
     protected $updatedField  = "updated_a";
     protected $deletedField  ="deleted_at";
 
-    protected $validationRulesUpdate = [
+    protected $validationRules = [
         'nama' => [
             'rules' => 'required',
             'errors' => [
@@ -35,17 +35,18 @@ class AkunModel extends Model
             ]
         ],
         'username' => [
-            'label'  => 'Username',
             'rules' => 'required',
             'errors' => [
-                'required' => 'Username tidak boleh kosong'
+                'required' => 'Username tidak boleh kosong',
+                'is_unique' =>  'Username sudah terdaftar'
             ]
         ],
         'email' => [
-            'rules' => 'required|valid_email|is_unique[user.email]',
+            'rules' => 'required|valid_email',
             'errors' => [
                 'required' => 'Email tidak boleh kosong',
                 'valid_email' => 'Email tidak valid',
+                'is_unique' =>  'Email sudah terdaftar'
             ]
         ],
         'telp' => [
@@ -64,4 +65,14 @@ class AkunModel extends Model
 
     protected $validationMessages = [];
     protected $skipValidation     = false;
+
+    public function getData($where = false)
+    {
+        if ($where === false)
+        {
+            return (object)$this->get()->getRowArray();
+        }
+
+        return (object)$this->where($where)->get()->getRowArray();
+    }
 }

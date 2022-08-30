@@ -7,7 +7,7 @@ class AuthModel extends Model
     protected $table      = "user";
     protected $primaryKey = "id";
 
-    protected $returnType     = array();
+    protected $returnType     = 'array';
     protected $useSoftDeletes = true;
 
     protected $allowedFields = [
@@ -35,10 +35,10 @@ class AuthModel extends Model
             ]
         ],
         'username' => [
-            'label'  => 'Username',
-            'rules' => 'required',
+            'rules' => 'required|is_unique[user.username]',
             'errors' => [
-                'required' => 'Username tidak boleh kosong'
+                'required' => 'Username tidak boleh kosong',
+                'is_unique' =>  'Username sudah terdaftar'
             ]
         ],
         'email' => [
@@ -46,6 +46,7 @@ class AuthModel extends Model
             'errors' => [
                 'required' => 'Email tidak boleh kosong',
                 'valid_email' => 'Email tidak valid',
+                'is_unique' =>  'Email sudah terdaftar'
             ]
         ],
         'telp' => [
@@ -71,7 +72,6 @@ class AuthModel extends Model
 
     protected $validationRulesLogin = [
         'username' => [
-            'label'  => 'Username',
             'rules' => 'required',
             'errors' => [
                 'required' => 'Username tidak boleh kosong'
@@ -87,4 +87,14 @@ class AuthModel extends Model
 
     protected $validationMessages = [];
     protected $skipValidation     = false;
+
+    public function getData($where = false)
+    {
+        if ($where === false)
+        {
+            return (object)$this->get()->getRowArray();
+        }
+
+        return (object)$this->where($where)->get()->getRowArray();
+    }
 }

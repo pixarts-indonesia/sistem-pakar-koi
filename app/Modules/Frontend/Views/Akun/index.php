@@ -21,27 +21,27 @@
                 <hr>
                 <div class="d-flex justify-content-between">
                     <p class="text-dark">Nama</p>
-                    <p class="text-dark"><?= $user['nama'] ?? '-'; ?></p>
+                    <p class="text-dark"><?= $user->nama ?? '-'; ?></p>
                 </div>
                 <hr>
                 <div class="d-flex justify-content-between">
                     <p class="text-dark">Username</p>
-                    <p class="text-dark"><?= $user['username'] ?? '-'; ?></p>
+                    <p class="text-dark"><?= $user->username ?? '-'; ?></p>
                 </div>
                 <hr>
                 <div class="d-flex justify-content-between">
                     <p class="text-dark">Email</p>
-                    <p class="text-dark"><?= $user['email'] ?? '-'; ?></p>
+                    <p class="text-dark"><?= $user->email ?? '-'; ?></p>
                 </div>
                 <hr>
                 <div class="d-flex justify-content-between">
                     <p class="text-dark">Nomor HP</p>
-                    <p class="text-dark"><?= $user['telp'] ?? '-'; ?></p>
+                    <p class="text-dark"><?= $user->telp ?? '-'; ?></p>
                 </div>
                 <hr>
                 <div class="d-flex justify-content-between">
                     <p class="text-dark">Alamat</p>
-                    <p class="text-dark"><?= $user['alamat'] ?? '-'; ?></p>
+                    <p class="text-dark"><?= $user->alamat ?? '-'; ?></p>
                 </div>
                 <hr>
                 <div class="col-12 text-center pt-5">
