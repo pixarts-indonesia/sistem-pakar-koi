@@ -63,6 +63,15 @@ class AkunModel extends Model
         ]
     ];
 
+    protected $validationRulesForget = [
+        'password' => [
+            'rules' => 'required',
+            'errors' => [
+                'required' => 'Password tidak boleh kosong'
+            ]
+        ]
+    ];
+
     protected $validationMessages = [];
     protected $skipValidation     = false;
 

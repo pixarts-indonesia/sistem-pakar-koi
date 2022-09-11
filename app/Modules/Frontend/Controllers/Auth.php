@@ -3,7 +3,6 @@ namespace App\Modules\Frontend\Controllers;
 
 use CodeIgniter\Controller;
 use Config\Services;
-use Config\Encryption;
 use App\Modules\Frontend\Models\AuthModel;
 
 class Auth extends Controller
@@ -44,9 +43,23 @@ class Auth extends Controller
         return view('App\Modules\Frontend\Views\Auth\login', $data);
     }
 
-    public function forgot_password()
+    public function forgotPassword()
     {
+        $this->validation->setRules($this->models->validationRulesForget);
+        $validation = $this->validation->withRequest($this->request)->run();
+
+        if ($validation) {
+            $post = (object)$this->request->getPost();
+            $this->models->set(['deleted_at' => 1])->where(['username' => $post->username]);
+            if ($this->models->update()) {
+                return redirect()->to('/')->with('success', 'Berhasil mengajukan reset password');
+            } else {
+                $this->session->setFlashdata('error', 'Kamu belum terdaftar, silahkan daftar terlebih dahulu');
+            }
+        }
+
         $data['title'] = 'Lupa Kata Sandi';
+        $data['validation'] = ($this->request->getPost()) ? true : false;
         return view('App\Modules\Frontend\Views\Auth\forgot_password', $data);
     }
 

@@ -10,12 +10,13 @@ $routes->group('', ['namespace' => 'App\Modules\Frontend\Controllers'], function
 	/*** Route for Akun ***/
 	$subroutes->add('akun', 'Akun::index');
 	$subroutes->add('akun/ubah', 'Akun::update');
+	$subroutes->match(['add', 'put'], 'akun/forgot-password', 'Akun::forgotPassword');
 
 	/*** Route for Auth ***/
 	$subroutes->add('login', 'Auth::login');
-	$subroutes->add('forgot_password', 'Auth::forgot_password');
 	$subroutes->add('daftar', 'Auth::daftar');
 	$subroutes->add('logout', 'Auth::logout');
+	$subroutes->match(['add', 'put'], 'forgot-password', 'Auth::forgotPassword');
 
 	/*** Route for Diagnosa ***/
 	$subroutes->add('diagnosa', 'Diagnosa::index');

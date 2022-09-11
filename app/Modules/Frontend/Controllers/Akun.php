@@ -61,4 +61,25 @@ class Akun extends Controller
 
         return view('App\Modules\Frontend\Views\Akun\update', $data);
     }
+
+    public function forgotPassword()
+    {
+        $this->validation->setRules($this->models->validationRulesForget);
+        $validation = $this->validation->withRequest($this->request)->run();
+
+        if ($validation) {
+            $post = (object)$this->request->getPost();
+            $password = password_hash($post->password, PASSWORD_DEFAULT);
+            $this->models->set(['password' => $password])->where(['id' => $this->session->get('user')->id]);
+            if ($this->models->update()) {
+                return redirect()->to('/akun')->with('success', 'Berhasil mengubah password');
+            } else {
+                $this->session->setFlashdata('error', 'Kamu belum terdaftar, silahkan daftar terlebih dahulu');
+            }
+        }
+
+        $data['title'] = 'Lupa Kata Sandi';
+        $data['validation'] = ($this->request->getPost()) ? true : false;
+        return view('App\Modules\Frontend\Views\Akun\forgot_password', $data);
+    }
 }

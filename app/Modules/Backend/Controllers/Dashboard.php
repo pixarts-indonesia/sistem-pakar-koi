@@ -9,10 +9,10 @@ class Dashboard extends Controller
     public function index()
     {
         $data = [
-            'title' => 'Dashboard Page',
+            'title' => 'Dashboard',
             'view' => 'land/data',
             'data' => 'Hello World from Backend Module -> Dashboard!'
         ];
-        return view('welcome_message');
+        return view('App\Modules\Backend\Views\Dashboard\index', $data);
     }
 }

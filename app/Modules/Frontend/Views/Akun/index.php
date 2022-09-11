@@ -44,8 +44,9 @@
                     <p class="text-dark"><?= $user->alamat ?? '-'; ?></p>
                 </div>
                 <hr>
-                <div class="col-12 text-center pt-5">
+                <div class="col-12 pt-5 d-flex justify-content-betwee">
                     <a class="read_more" href="<?= base_url('akun/ubah'); ?>"> Ubah</a>
+                    <a class="read_more" href="<?= base_url('akun/forgot-password'); ?>"> Ubah Password</a>
                 </div>
             </div>
         </div>

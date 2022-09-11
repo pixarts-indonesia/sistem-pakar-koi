@@ -7,8 +7,8 @@ class AuthModel extends Model
     protected $table      = "user";
     protected $primaryKey = "id";
 
-    protected $returnType     = 'array';
-    protected $useSoftDeletes = true;
+    protected $returnType     = array();
+    protected $useSoftDeletes = false;
 
     protected $allowedFields = [
         'username',
@@ -25,7 +25,7 @@ class AuthModel extends Model
     protected $useTimestamps = false;
     protected $createdField  = "created_at";
     protected $updatedField  = "updated_a";
-    protected $deletedField  ="deleted_at";
+    protected $deletedField  = "deleted_at";
 
     protected $validationRulesDaftar = [
         'nama' => [
@@ -83,6 +83,15 @@ class AuthModel extends Model
                 'required' => 'Password tidak boleh kosong'
             ]
         ],
+    ];
+
+    protected $validationRulesForget = [
+        'username' => [
+            'rules' => 'required',
+            'errors' => [
+                'required' => 'Username tidak boleh kosong'
+            ]
+        ]
     ];
 
     protected $validationMessages = [];

@@ -5,14 +5,14 @@ class Widget
 {
     public function error()
     {
-        return view('App\Modules\Frontend\Views\Widget\_error');
+        return view('widget/_error');
     }
     public function info()
     {
-        return view('App\Modules\Frontend\Views\Widget\_info');
+        return view('widget/_info');
     }
     public function success()
     {
-        return view('App\Modules\Frontend\Views\Widget\_success');
+        return view('widget/_success');
     }
 }

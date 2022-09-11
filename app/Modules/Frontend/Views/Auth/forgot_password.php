@@ -14,15 +14,22 @@
                                 <h3>Lupa kata sandi</h3>
                                 <p class="mb-4">Masukan username kamu, dan terima link ubah kata sandi di email kamu.</p>
                             </div>
-                            <form action="#" method="post">
-                                <div class="form-group first">
-                                    <label for="username">Username</label>
-                                    <input type="text" class="form-control" id="username">
+                            <?php if($validation): ?>
+                                <div class="form-group pb-1">
+                                    <div class="alert alert-danger" role="alert">
+                                        <?= service('validation')->listErrors() ?>
+                                    </div>
+                                </div>
+                            <?php endif; ?>
+                            <?= form_open('', ['method' => 'POST']); ?>
+                                <div class="form-group">
+                                    <?= form_label('Username', 'username'); ?>
+                                    <?= form_input(['class' => 'form-control', 'type' => 'text', 'name' => 'username']) ?>
                                 </div>
                                 <button type="submit" class="btn text-white btn-block btn-primary">
                                     <span class="icon-bagikan"></span> Kirim
                                 </button>
-                            </form>
+                            <?= form_close(); ?>
                             <div class="d-flex justify-content-between">
                                 <a href="<?= base_url('/'); ?>" rel="noopener noreferrer">
                                     <span class="d-block text-left my-4 text-primary">
