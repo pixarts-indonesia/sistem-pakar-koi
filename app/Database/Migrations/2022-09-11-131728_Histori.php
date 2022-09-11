@@ -4,7 +4,7 @@ namespace App\Database\Migrations;
 
 use CodeIgniter\Database\Migration;
 
-class User extends Migration
+class Histori extends Migration
 {
     public function up()
     {
@@ -15,40 +15,23 @@ class User extends Migration
                 'unsigned' => true,
                 'auto_increment' => true
             ],
-            'username' => [
+            'kode_histori' => [
                 'type' => 'VARCHAR',
                 'constraint' => '225',
                 'null' => true,
             ],
-            'nama' => [
-                'type' => 'VARCHAR',
-                'constraint' => '225',
-                'null' => true,
-            ],
-            'email' => [
-                'type' => 'VARCHAR',
-                'constraint' => '225',
-                'null' => true,
-            ],
-            'telp' => [
-                'type' => 'VARCHAR',
-                'constraint' => '225',
-                'null' => true,
-            ],
-            'alamat' => [
-                'type' => 'VARCHAR',
-                'constraint' => '225',
-                'null' => true,
-            ],
-            'password' => [
+            'penyakit' => [
                 'type' => 'TEXT',
                 'null' => true,
             ],
-            'level' => [
+            'gejala' => [
+                'type' => 'TEXT',
+                'null' => true,
+            ],
+            'nilai' => [
                 'type' => 'SMALLINT',
                 'constraint' => 6,
-                'default' => 2,
-                'null' => true,
+                'null' => true
             ],
             'created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP',
             'updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP',
@@ -62,11 +45,11 @@ class User extends Migration
 
         $this->forge->addKey('id', TRUE);
 
-        $this->forge->createTable('user');
+        $this->forge->createTable('histori');
     }
 
     public function down()
     {
-		$this->forge->dropTable('user');
+		$this->forge->dropTable('histori');
     }
 }

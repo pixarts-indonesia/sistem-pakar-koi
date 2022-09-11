@@ -4,13 +4,21 @@ use CodeIgniter\Model;
 
 class HistoriModel extends Model
 {
-    protected $table      = "";
-    protected $primaryKey = "";
+    protected $table      = "histori";
+    protected $primaryKey = "id";
 
     protected $returnType     = array();
     protected $useSoftDeletes = true;
 
-    protected $allowedFields = [];
+    protected $allowedFields = [
+        'kode_histori',
+        'penyakit',
+        'gejala',
+        'nilai',
+        'created_at',
+        'updated_at',
+        'deleted_at'
+    ];
 
     protected $useTimestamps = false;
     protected $createdField  = "created_at";
@@ -20,4 +28,14 @@ class HistoriModel extends Model
     protected $validationRules    = [];
     protected $validationMessages = [];
     protected $skipValidation     = false;
+
+    public function getData($where = false)
+    {
+        if ($where === false)
+        {
+            return $this->get()->getResultArray();
+        }
+
+        return (object)$this->where($where)->get()->getRowArray();
+    }
 }

@@ -15,7 +15,17 @@ class UserSeeder extends Seeder
                 'email' => 'biyogidofficial@gmail.com',
                 'telp' => '082322525083',
                 'alamat' => 'DIY',
-                'password' => '$2y$10$D/NdbTlQw9KHJU30dbOxz.PKWwIx4JKLBdSsicQwyAMpdsUYLIgdO',
+                'password' => password_hash('saras008', PASSWORD_DEFAULT),
+                'level' => 2
+            ],
+            [
+                'username' => 'admin-master',
+                'nama' => 'Admin Master',
+                'email' => 'admin-master@gmail.com',
+                'telp' => '082322525083',
+                'alamat' => 'DIY',
+                'password' => password_hash('saras008', PASSWORD_DEFAULT),
+                'level' => 1
             ]
         ];
         $this->db->table('user')->insertBatch($data);

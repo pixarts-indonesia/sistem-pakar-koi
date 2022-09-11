@@ -4,7 +4,7 @@
     <div class="container-fluid">
         <div class="row">
             <!-- column -->
-            <div class="col-lg-12">
+            <div class="col-lg-12 mt-5 pt-5">
                 <div class="card">
                     <div class="card-body">
                         <h1>Welcome Admin Sistem</h1>

@@ -24,8 +24,13 @@ class Gejala extends Controller
 
     public function index()
     {
+        if (!$this->session->get('admin')) {
+            return redirect()->to('admin/login')->with('error', 'Login terlebih dahulu');
+        }
+
         $data['title'] = 'Gejala';
         $data['models'] = $this->models->getData();
+        $data['main'] = true;
         return view('App\Modules\Backend\Views\Gejala\index', $data);
     }
 
@@ -40,6 +45,10 @@ class Gejala extends Controller
 
     public function create()
     {
+        if (!$this->session->get('admin')) {
+            return redirect()->to('admin/login')->with('error', 'Login terlebih dahulu');
+        }
+
         $this->validation->setRules($this->models->validationRules);
         $validation = $this->validation->withRequest($this->request)->run();
 
@@ -56,11 +65,16 @@ class Gejala extends Controller
         $data['value'] = 'create';
         $data['validation'] = ($this->request->getPost()) ? true : false;
         $data['params'] = (object)$this->request->getPost();
+        $data['main'] = true;
         return view('App\Modules\Backend\Views\Gejala\create', $data);
     }
 
     public function update($id = NULL)
     {
+        if (!$this->session->get('admin')) {
+            return redirect()->to('admin/login')->with('error', 'Login terlebih dahulu');
+        }
+
         $this->validation->setRules($this->models->validationRules);
         $validation = $this->validation->withRequest($this->request)->run();
 
@@ -76,15 +90,21 @@ class Gejala extends Controller
         $data['value'] = 'readOnly';
         $data['validation'] = ($this->request->getPost()) ? true : false;
         $data['params'] = $this->models->getData(['id' => $id]);
+        $data['main'] = true;
         return view('App\Modules\Backend\Views\Gejala\create', $data);
     }
 
     public function view($id = NULL)
     {
+        if (!$this->session->get('admin')) {
+            return redirect()->to('admin/login')->with('error', 'Login terlebih dahulu');
+        }
+
         $data['title'] = 'Detail';
         $data['models'] = $this->models->getData(
             ['id' => $id]
         );
+        $data['main'] = true;
         return view('App\Modules\Backend\Views\Gejala\view', $data);
     }
 }

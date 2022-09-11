@@ -68,13 +68,16 @@ class UserModel extends Model
     protected $validationMessages = [];
     protected $skipValidation     = false;
 
-    public function getData($where = false)
+    public function getData($where = false, $array = false)
     {
         if ($where === false)
         {
-            return (object)$this->get()->getResultArray();
+            return $this->get()->getResultArray();
         }
-
-        return (object)$this->where($where)->get()->getRowArray();
+        if ($array === false) {
+            return (object)$this->where($where)->get()->getRowArray();
+        } else {
+            return $this->where($where)->get()->getResultArray();
+        }
     }
 }

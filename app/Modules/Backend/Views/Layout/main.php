@@ -11,7 +11,7 @@
     <meta name="description"
         content="Flexy Admin Lite is powerful and clean admin dashboard template, inpired from Bootstrap Framework">
     <meta name="robots" content="noindex,nofollow">
-    <title>Flexy Admin Lite Template by WrapPixel</title>
+    <title><?= $title ?></title>
     <link rel="canonical" href="https://www.wrappixel.com/templates/Flexy-admin-lite/" />
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="<?= base_url('assets/images/favicon.png'); ?>">
@@ -37,79 +37,74 @@
     </div>
     <div id="main-wrapper" data-layout="vertical" data-navbarbg="skin5" data-sidebartype="full"
         data-sidebar-position="absolute" data-header-position="absolute" data-boxed-layout="full">
-        <header class="topbar" data-navbarbg="skin6">
-            <nav class="navbar top-navbar navbar-expand-md navbar-light">
-                <div class="navbar-header" data-logobg="skin6">
-                    <a class="navbar-brand" href="<?= base_url('/admin'); ?>">
-                        <b class="logo-icon">
-                            <img src="<?= base_url('assets/images/logo-icon.png'); ?>" alt="homepage" class="dark-logo" />
-                            <img src="<?= base_url('assets/images/logo-light-icon.png'); ?>" alt="homepage" class="light-logo" />
-                        </b>
-                        <span class="logo-text">
-                            <h1 alt="homepage" class="dark-logo">Admin</h1>
-                            <h1 class="light-logo" alt="homepage">Admin</h1>
-                        </span>
-                    </a>
-                    <a class="nav-toggler waves-effect waves-light d-block d-md-none" href="javascript:void(0)"><i
-                            class="mdi mdi-menu"></i></a>
-                </div>
-                <div class="navbar-collapse collapse" id="navbarSupportedContent" data-navbarbg="skin5">
-                    <ul class="navbar-nav float-start me-auto">
-                        <li class="nav-item search-box"> <a class="nav-link waves-effect waves-dark"
-                                href="javascript:void(0)"><i class="mdi mdi-magnify me-1"></i> <span class="font-16">Search</span></a>
-                            <form class="app-search position-absolute">
-                                <input type="text" class="form-control" placeholder="Search &amp; enter"> <a
-                                    class="srh-btn"><i class="mdi mdi-window-close"></i></a>
-                            </form>
-                        </li>
-                    </ul>
-                    <ul class="navbar-nav float-end">
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark pro-pic" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                <img src="<?= base_url('assets/images/logo-icon.png'); ?>" alt="user" class="rounded-circle" width="31">
-                            </a>
-                            <ul class="dropdown-menu dropdown-menu-end user-dd animated" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="javascript:void(0)"><i class="ti-user m-r-5 m-l-5"></i>
-                                    My Profile</a>
-                                <a class="dropdown-item" href="javascript:void(0)"><i class="mdi mdi-logout m-r-5 m-l-5"></i>
-                                    Logout</a>
-                            </ul>
-                        </li>
-                    </ul>
-                </div>
-            </nav>
-        </header>
-        <aside class="left-sidebar" data-sidebarbg="skin6">
-            <div class="scroll-sidebar">
-                <nav class="sidebar-nav">
-                    <ul id="sidebarnav">
-                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
-                                href="<?= base_url('/admin') ?>" aria-expanded="false"><i class="mdi mdi-view-dashboard"></i><span
-                                    class="hide-menu">Dashboard</span></a></li>
-                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
-                                href="<?= base_url('/admin/user') ?>" aria-expanded="false"><i
-                                    class="mdi mdi-account-network"></i><span class="hide-menu">User</span></a></li>
-                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
-                                href="<?= base_url('/admin/penyakit') ?>" aria-expanded="false"><i class="mdi mdi-dna"></i><span
-                                    class="hide-menu">Penyakit</span></a></li>
-                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
-                                href="<?= base_url('/admin/gejala') ?>" aria-expanded="false"><i class="mdi mdi-dns"></i><span
-                                    class="hide-menu">Gejala</span></a></li>
-                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
-                                href="<?= base_url('/admin/rules') ?>" aria-expanded="false"><i class="mdi mdi-file-document"></i><span
-                                    class="hide-menu">Rules</span></a></li>
-                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
-                                href="<?= base_url('/admin/histori') ?>" aria-expanded="false"><i class="mdi mdi-history"></i><span
-                                    class="hide-menu">Histori</span></a></li>
-                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
-                                href="<?= base_url('/admin/responden') ?>" aria-expanded="false"><i class="mdi mdi-file-document-box"></i><span
-                                    class="hide-menu">Responden</span></a></li>
-                    </ul>
-
+        <?php if (isset($main)) : ?>
+            <header class="topbar" data-navbarbg="skin6">
+                <nav class="navbar top-navbar navbar-expand-md navbar-light">
+                    <div class="navbar-header" data-logobg="skin6">
+                        <a class="navbar-brand" href="<?= base_url('/admin'); ?>">
+                            <b class="logo-icon">
+                                <img src="<?= base_url('assets/images/logo-icon.png'); ?>" alt="homepage" class="dark-logo" />
+                                <img src="<?= base_url('assets/images/logo-light-icon.png'); ?>" alt="homepage" class="light-logo" />
+                            </b>
+                            <span class="logo-text">
+                                <h1 alt="homepage" class="dark-logo">Admin</h1>
+                                <h1 class="light-logo" alt="homepage">Admin</h1>
+                            </span>
+                        </a>
+                        <a class="nav-toggler waves-effect waves-light d-block d-md-none" href="javascript:void(0)"><i
+                                class="mdi mdi-menu"></i></a>
+                    </div>
+                    <div class="navbar-collapse collapse" id="navbarSupportedContent" data-navbarbg="skin5">
+                        <ul class="navbar-nav float-start me-auto">
+                        </ul>
+                        <ul class="navbar-nav float-end">
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark pro-pic" href="" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <img src="<?= base_url('assets/images/logo-icon.png'); ?>" alt="user" class="rounded-circle" width="31">
+                                </a>
+                                <ul class="dropdown-menu dropdown-menu-end user-dd animated" aria-labelledby="navbarDropdown">
+                                    <!-- <a class="dropdown-item" href="javascript:void(0)"><i class="ti-user m-r-5 m-l-5"></i>
+                                        My Profile</a> -->
+                                    <a class="dropdown-item" href="<?= base_url('admin/logout') ?>"><i class="mdi mdi-logout m-r-5 m-l-5"></i>
+                                        Logout</a>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
                 </nav>
-            </div>
-        </aside>
-        <div class="page-wrapper">
+            </header>
+            <aside class="left-sidebar" data-sidebarbg="skin6">
+                <div class="scroll-sidebar">
+                    <nav class="sidebar-nav">
+                        <ul id="sidebarnav">
+                            <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
+                                    href="<?= base_url('/admin') ?>" aria-expanded="false"><i class="mdi mdi-view-dashboard"></i><span
+                                        class="hide-menu">Dashboard</span></a></li>
+                            <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
+                                    href="<?= base_url('/admin/user') ?>" aria-expanded="false"><i
+                                        class="mdi mdi-account-network"></i><span class="hide-menu">User</span></a></li>
+                            <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
+                                    href="<?= base_url('/admin/penyakit') ?>" aria-expanded="false"><i class="mdi mdi-dna"></i><span
+                                        class="hide-menu">Penyakit</span></a></li>
+                            <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
+                                    href="<?= base_url('/admin/gejala') ?>" aria-expanded="false"><i class="mdi mdi-dns"></i><span
+                                        class="hide-menu">Gejala</span></a></li>
+                            <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
+                                    href="<?= base_url('/admin/rules') ?>" aria-expanded="false"><i class="mdi mdi-file-document"></i><span
+                                        class="hide-menu">Rules</span></a></li>
+                            <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
+                                    href="<?= base_url('/admin/histori') ?>" aria-expanded="false"><i class="mdi mdi-history"></i><span
+                                        class="hide-menu">Histori</span></a></li>
+                            <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
+                                    href="<?= base_url('/admin/responden') ?>" aria-expanded="false"><i class="mdi mdi-file-document-box"></i><span
+                                        class="hide-menu">Responden</span></a></li>
+                        </ul>
+
+                    </nav>
+                </div>
+            </aside>
+        <?php endif; ?>
+        <div class="<?= (isset($main)) ? 'page-wrapper' : '' ?>">
             <?php if (session()->getFlashData('error')) : ?>
                 <?= view_cell('\App\Libraries\Widget::error'); ?>
             <?php endif; ?>
@@ -120,9 +115,11 @@
                 <?= view_cell('\App\Libraries\Widget::success'); ?>
             <?php endif; ?>
             <?= $this->renderSection('content') ?>
-            <footer class="footer text-center">
-                <p>© <?= date('Y'); ?> All Rights Reserved.</p>
-            </footer>
+            <?php if (isset($main)) : ?>
+                <footer class="footer text-center">
+                    <p>© <?= date('Y'); ?> All Rights Reserved.</p>
+                </footer>
+            <?php endif; ?>
         </div>
     </div>
     <script src="<?= base_url('assets/libs/jquery/dist/jquery.min.js'); ?>"></script>

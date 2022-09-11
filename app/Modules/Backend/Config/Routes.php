@@ -7,6 +7,10 @@ if(!isset($routes))
 
 $routes->group('admin', ['namespace' => 'App\Modules\Backend\Controllers'], function($subroutes){
 
+	/*** Route for Auth ***/
+	$subroutes->add('login', 'Auth::login');
+	$subroutes->add('logout', 'Auth::logout');
+
 	/*** Route for Dashboard ***/
 	$subroutes->add('', 'Dashboard::index');
 

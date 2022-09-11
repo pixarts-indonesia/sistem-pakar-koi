@@ -24,8 +24,13 @@ class User extends Controller
 
     public function index()
     {
+        if (!$this->session->get('admin')) {
+            return redirect()->to('admin/login')->with('error', 'Login terlebih dahulu');
+        }
+
         $data['title'] = 'User';
-        $data['models'] = $this->models->getData();
+        $data['main'] = true;
+        $data['models'] = $this->models->getData(['level' => 2], true);
         return view('App\Modules\Backend\Views\User\index', $data);
     }
 
@@ -42,7 +47,12 @@ class User extends Controller
 
     public function view($id = NULL)
     {
+        if (!$this->session->get('admin')) {
+            return redirect()->to('admin/login')->with('error', 'Login terlebih dahulu');
+        }
+
         $data['title'] = 'Detail';
+        $data['main'] = true;
         $data['models'] = $this->models->getData(
             ['id' => $id]
         );

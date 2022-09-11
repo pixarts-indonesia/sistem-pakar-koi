@@ -23,22 +23,36 @@ class Rules extends Controller
 
     public function index()
     {
+        if (!$this->session->get('admin')) {
+            return redirect()->to('admin/login')->with('error', 'Login terlebih dahulu');
+        }
+
         $data['title'] = 'Rules';
         $data['models'] = $this->models->getData();
+        $data['main'] = true;
         return view('App\Modules\Backend\Views\Rules\index', $data);
     }
 
     public function view($id = NULL)
     {
+        if (!$this->session->get('admin')) {
+            return redirect()->to('admin/login')->with('error', 'Login terlebih dahulu');
+        }
+
         $data['title'] = 'Detail';
         $data['models'] = $this->models->getData(
             ['rules.id' => $id]
         );
+        $data['main'] = true;
         return view('App\Modules\Backend\Views\Rules\view', $data);
     }
 
     public function create()
     {
+        if (!$this->session->get('admin')) {
+            return redirect()->to('admin/login')->with('error', 'Login terlebih dahulu');
+        }
+
         $this->validation->setRules($this->models->validationRules);
         $validation = $this->validation->withRequest($this->request)->run();
 
@@ -66,6 +80,7 @@ class Rules extends Controller
         $data['value'] = 'create';
         $data['validation'] = ($this->request->getPost()) ? true : false;
         $data['params'] = (object)$this->request->getPost();
+        $data['main'] = true;
         return view('App\Modules\Backend\Views\Rules\create', $data);
     }
 
@@ -80,6 +95,10 @@ class Rules extends Controller
 
     public function update($id = NULL)
     {
+        if (!$this->session->get('admin')) {
+            return redirect()->to('admin/login')->with('error', 'Login terlebih dahulu');
+        }
+
         $this->validation->setRules($this->models->validationRulesUpdate);
         $validation = $this->validation->withRequest($this->request)->run();
 
@@ -95,6 +114,7 @@ class Rules extends Controller
         $data['value'] = 'disabled';
         $data['validation'] = ($this->request->getPost()) ? true : false;
         $data['params'] = $this->models->getData(['rules.id' => $id]);
+        $data['main'] = true;
         return view('App\Modules\Backend\Views\Rules\create', $data);
     }
 }

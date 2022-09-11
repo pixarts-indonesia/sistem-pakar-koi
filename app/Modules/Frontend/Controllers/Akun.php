@@ -64,6 +64,10 @@ class Akun extends Controller
 
     public function forgotPassword()
     {
+        if (!$this->session->get('user')) {
+            return redirect()->to('login')->with('error', 'Login terlebih dahulu');
+        }
+
         $this->validation->setRules($this->models->validationRulesForget);
         $validation = $this->validation->withRequest($this->request)->run();
 

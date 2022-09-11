@@ -17,6 +17,7 @@ class AuthModel extends Model
         'telp',
         'alamat',
         'password',
+        'level',
         'created_at',
         'updated_at',
         'deleted_at'

@@ -57,6 +57,11 @@
                                     </td>
                                 </tr>
                             <?php endforeach; ?>
+                            <?php if (!isset($models[0])) : ?>
+                                <tr>
+                                    <td colspan="5" class="text-center"><strong>Data Kosong</strong></td>
+                                </tr>
+                            <?php endif; ?>
                         </tbody>
                     </table>
                 </div>

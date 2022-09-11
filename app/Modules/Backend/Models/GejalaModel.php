@@ -38,7 +38,7 @@ class GejalaModel extends Model
     {
         if ($where === false)
         {
-            return (object)$this->get()->getResultArray();
+            return $this->get()->getResultArray();
         }
 
         return (object)$this->where($where)->get()->getRowArray();
