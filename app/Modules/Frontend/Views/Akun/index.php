@@ -64,16 +64,18 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <th scope="row">27 Juni 2021</th>
-                            <td>Jamur Insang</td>
-                            <td>Ikan terlihat lemas, ikan terlihat menyendiri</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">27 April 2021</th>
-                            <td>Dropsy</td>
-                            <td>Ikan terlihat lemas, ikan tidak napsu makan</td>
-                        </tr>
+                        <?php foreach ($histori as $key => $value): ?>
+                            <tr>
+                                <th scope="row"><?= date_format(date_create($value['created_at']), "d M Y (H:i:s)") ?></th>
+                                <td><?= $value['penyakit'] ?></td>
+                                <td><?= $value['gejala'] ?></td>
+                            </tr>
+                        <?php endforeach; ?>
+                        <?php if (!isset($histori[0])) : ?>
+                            <tr>
+                                <td colspan="3" class="text-center">Data Kosong</td>
+                            </tr>
+                        <?php endif; ?>
                     </tbody>
                     <tfoot class="thead-dark">
                         <tr>

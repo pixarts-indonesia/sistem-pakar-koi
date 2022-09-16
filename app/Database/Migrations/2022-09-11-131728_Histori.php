@@ -33,6 +33,11 @@ class Histori extends Migration
                 'constraint' => 6,
                 'null' => true
             ],
+            'created_by' => [
+                'type' => 'INT',
+                'constraint' => 11,
+                'null' => true
+            ],
             'created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP',
             'updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP',
             'deleted_at' => [

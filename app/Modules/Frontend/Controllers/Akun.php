@@ -4,6 +4,7 @@ namespace App\Modules\Frontend\Controllers;
 use CodeIgniter\Controller;
 use Config\Services;
 use App\Modules\Frontend\Models\AkunModel;
+use App\Modules\Frontend\Models\HistoriModel;
 
 class Akun extends Controller
 {
@@ -19,6 +20,7 @@ class Akun extends Controller
         $this->session = Services::session();
         $this->session->start();
         $this->models = new AkunModel;
+        $this->models->histori = new HistoriModel;
         $this->validation = Services::validation();
     }
 
@@ -29,6 +31,7 @@ class Akun extends Controller
         }
 
         $data['user'] = $this->models->getData(['id' => $this->session->get('user')->id]);
+        $data['histori'] = $this->models->histori->getData(['created_by' => $this->session->get('user')->id], true);
         $data['title'] = 'Akun';
         $data['main'] = true;
 
