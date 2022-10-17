@@ -96,7 +96,7 @@
                                 <th scope="col">STS</th>
                             </tr>
                             <tr>
-                                <td colspan="6">
+                                <td colspan="7">
                                     <strong>Keterangan</strong><br>
                                     <strong>SS</strong> : Sangat Setuju<br>
                                     <strong>ST</strong> : Setuju<br>
