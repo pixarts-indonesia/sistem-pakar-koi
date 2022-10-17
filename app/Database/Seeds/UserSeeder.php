@@ -10,6 +10,7 @@ class UserSeeder extends Seeder
     {
         $data = [
             [
+                'id' => 1,
                 'username' => 'andri007',
                 'nama' => 'ANDRI RIZKI SAPUTRA',
                 'email' => 'biyogidofficial@gmail.com',
@@ -19,6 +20,7 @@ class UserSeeder extends Seeder
                 'level' => 2
             ],
             [
+                'id' => 2,
                 'username' => 'admin-master',
                 'nama' => 'Admin Master',
                 'email' => 'admin-master@gmail.com',

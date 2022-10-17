@@ -169,7 +169,7 @@ $uri = $request->uri->getSegment(1);
         <?php endif; ?>
         <!-- Javascript files-->
         <script src="<?= base_url('assets/js/jquery.min.js'); ?>"></script>
-        <script src="<?= base_url('assets/js/popper.min.js'); ?>"></script>
+        <!-- <script src="<?php base_url('assets/js/popper.min.js'); ?>"></script> -->
         <script src="<?= base_url('assets/js/bootstrap.bundle.min.js'); ?>"></script>
         <script src="<?= base_url('assets/js/jquery-3.3.1.min.js'); ?>"></script>
         <script src="<?= base_url('assets/js/bootstrap.min.js'); ?>"></script>

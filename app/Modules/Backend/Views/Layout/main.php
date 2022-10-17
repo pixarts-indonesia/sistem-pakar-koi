@@ -98,6 +98,9 @@
                             <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
                                     href="<?= base_url('/admin/responden') ?>" aria-expanded="false"><i class="mdi mdi-file-document-box"></i><span
                                         class="hide-menu">Responden</span></a></li>
+                            <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
+                                    href="<?= base_url('/admin/hasil-responden') ?>" aria-expanded="false"><i class="mdi mdi-file-document-box"></i><span
+                                        class="hide-menu">Hasil Responden</span></a></li>
                         </ul>
 
                     </nav>

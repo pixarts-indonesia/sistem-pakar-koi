@@ -24,6 +24,10 @@ $routes->group('admin', ['namespace' => 'App\Modules\Backend\Controllers'], func
 	/*** Route for Histori ***/
 	$subroutes->add('histori', 'Histori::index');
 
+	/*** Route for Histori Responden ***/
+	$subroutes->add('hasil-responden', 'HistoriResponden::index');
+	$subroutes->match(['add', 'delete'], 'hasil-responden/delete/(:num)', 'HistoriResponden::delete/$1');
+
 	/*** Route for Penyakit ***/
 	$subroutes->add('penyakit', 'Penyakit::index');
 	$subroutes->get('penyakit/view/(:num)', 'Penyakit::view/$1');
@@ -33,6 +37,9 @@ $routes->group('admin', ['namespace' => 'App\Modules\Backend\Controllers'], func
 
 	/*** Route for Responden ***/
 	$subroutes->add('responden', 'Responden::index');
+	$subroutes->match(['add', 'put'], 'responden/update/(:num)', 'Responden::update/$1');
+	$subroutes->match(['add', 'post'], 'responden/create', 'Responden::create');
+	$subroutes->match(['add', 'delete'], 'responden/delete/(:num)', 'Responden::delete/$1');
 
 	/*** Route for Rules ***/
 	$subroutes->add('rules', 'Rules::index');

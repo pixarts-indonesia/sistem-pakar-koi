@@ -10,6 +10,7 @@ class RunSeeder extends Seeder
     {
         $this->call('GejalaSeeder');
         $this->call('PenyakitSeeder');
+        $this->call('RespondenSeender');
         $this->call('RulesSeeder');
         $this->call('UserSeeder');
     }

@@ -1,4 +1,4 @@
-<?php namespace App\Modules\Backend\Models;
+<?php namespace App\Modules\Frontend\Models;
 
 use CodeIgniter\Model;
 
@@ -25,9 +25,9 @@ class RespondenModel extends Model
 
     protected $validationRules = [
         'pertanyaan' => [
-            'rules' => 'required',
+            'pertanyaan' => 'required',
             'errors' => [
-                'required' => 'Pertanyaan tidak boleh kosong'
+                'required' => 'Tidak boleh ada data kosong'
             ]
         ]
     ];
@@ -38,7 +38,7 @@ class RespondenModel extends Model
     {
         if ($where === false)
         {
-            return $this->get()->getResultArray();
+            return $this->orderBy('id', 'ASC')->get()->getResultArray();
         }
 
         return (object)$this->where($where)->get()->getRowArray();

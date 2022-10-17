@@ -1,5 +1,4 @@
 <?= $this->extend('App\Modules\Frontend\Views\Layout\main') ?>
-
 <?= $this->section('content') ?>
     <div class="yellow_darkbg">
         <div class="container">
@@ -17,38 +16,85 @@
             <div class="col-md-12 pr-5 pt-5 pb-5">
                 <div class="col-12 text-center">
                     <h1>Isi Pernyataan dibawah</h1>
+                    <?php if($validation) : ?>
+                        <div class="form-group pb-1">
+                            <div class="alert alert-danger" role="alert">
+                                <?= service('validation')->listErrors() ?>
+                            </div>
+                        </div>
+                    <?php endif; ?>
                 </div>
-                <form id="request" class="main_form">
+                <?= form_open('', ['method' => 'POST']); ?>
                     <table class="table table-striped table-bordered">
-                        <thead class="thead-dark">
+                        <thead class="thead-dark avoid-clicks">
                             <tr>
-                                <th scope="col">#</th>
+                                <th>#</th>
+                                <th>Pertanyaan</th>
+                                <th>SS</th>
+                                <th>ST</th>
+                                <th>RG</th>
+                                <th>TS</th>
+                                <th>STS</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php foreach ($models as $key => $value): ?>
+                                <tr>
+                                    <th scope="row"><?= $key+1 ?></th>
+                                    <th class="avoid-clicks"><?= $value['pertanyaan']; ?></th>
+                                    <td>
+                                        <?= form_input([
+                                            'class' => 'form-control',
+                                            'type' => 'radio',
+                                            'name' => $value['id'],
+                                            'value' => 5
+                                        ]) ?>
+                                    </td>
+                                    <td>
+                                        <?= form_input([
+                                            'class' => 'form-control',
+                                            'type' => 'radio',
+                                            'name' => $value['id'],
+                                            'value' => 4
+                                        ]) ?>
+                                    </td>
+                                    <td>
+                                        <?= form_input([
+                                            'class' => 'form-control',
+                                            'type' => 'radio',
+                                            'name' => $value['id'],
+                                            'value' => 3
+                                        ]) ?>
+                                    </td>
+                                    <td>
+                                        <?= form_input([
+                                            'class' => 'form-control',
+                                            'type' => 'radio',
+                                            'name' => $value['id'],
+                                            'value' => 2
+                                        ]) ?>
+                                    </td>
+                                    <td>
+                                        <?= form_input([
+                                            'class' => 'form-control',
+                                            'type' => 'radio',
+                                            'name' => $value['id'],
+                                            'value' => 1
+                                        ]) ?>
+                                    </td>
+                                </tr>
+                            <?php endforeach; ?>
+                        </tbody>
+                        <tfoot>
+                            <tr class="thead-dark">
+                                <th>#</th>
+                                <th>Pertanyaan</th>
                                 <th scope="col">SS</th>
                                 <th scope="col">ST</th>
                                 <th scope="col">RG</th>
                                 <th scope="col">TS</th>
                                 <th scope="col">STS</th>
                             </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <th scope="row">Bisa login dengan baik</th>
-                                <td><input type="radio" id="ss" name="keterangan-satu" value="SS"></td>
-                                <td><input type="radio" id="st" name="keterangan-satu" value="ST"></td>
-                                <td><input type="radio" id="rg" name="keterangan-satu" value="RG"></td>
-                                <td><input type="radio" id="ts" name="keterangan-satu" value="TS"></td>
-                                <td><input type="radio" id="sts" name="keterangan-satu" value="STS"></td>
-                            </tr>
-                            <tr>
-                                <th scope="row">Hasil diagnosa tepat</th>
-                                <td><input type="radio" id="ss" name="keterangan-dua" value="SS"></td>
-                                <td><input type="radio" id="st" name="keterangan-dua" value="ST"></td>
-                                <td><input type="radio" id="rg" name="keterangan-dua" value="RG"></td>
-                                <td><input type="radio" id="ts" name="keterangan-dua" value="TS"></td>
-                                <td><input type="radio" id="sts" name="keterangan-dua" value="STS"></td>
-                            </tr>
-                        </tbody>
-                        <tfoot>
                             <tr>
                                 <td colspan="6">
                                     <strong>Keterangan</strong><br>
@@ -64,7 +110,7 @@
                     <div class="col-12 text-center pt-5">
                         <button class="read_more"> Simpan</button>
                     </div>
-                </form>
+                <?= form_close(); ?>
             </div>
         </div>
     </div>

@@ -29,7 +29,7 @@ class Auth extends Controller
         if ($validation) {
             $post = (object)$this->request->getPost();
             $user = $this->models->getData(['username' => $post->username]);
-            if ($user && password_verify($post->password, $user->password)) {
+            if (isset($user->password) && password_verify($post->password, $user->password)) {
                 $this->session->set('user', $user);
                 return redirect()->to('/')->with('info', 'Selamat datang, kamu berhasil login');
             } else {

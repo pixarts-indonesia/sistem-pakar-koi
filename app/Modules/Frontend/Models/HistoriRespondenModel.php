@@ -1,17 +1,19 @@
-<?php namespace App\Modules\Backend\Models;
+<?php namespace App\Modules\Frontend\Models;
 
 use CodeIgniter\Model;
 
-class RespondenModel extends Model
+class HistoriRespondenModel extends Model
 {
-    protected $table      = "responden";
+    protected $table      = "histori_responden";
     protected $primaryKey = "id";
 
     protected $returnType     = array();
     protected $useSoftDeletes = false;
 
     protected $allowedFields = [
-        'pertanyaan',
+        'params',
+        'jumlah',
+        'nilai',
         'created_by',
         'created_at',
         'updated_at',
@@ -23,14 +25,7 @@ class RespondenModel extends Model
     protected $updatedField  = "updated_a";
     protected $deletedField  ="deleted_at";
 
-    protected $validationRules = [
-        'pertanyaan' => [
-            'rules' => 'required',
-            'errors' => [
-                'required' => 'Pertanyaan tidak boleh kosong'
-            ]
-        ]
-    ];
+    protected $validationRules = [];
     protected $validationMessages = [];
     protected $skipValidation     = false;
 
