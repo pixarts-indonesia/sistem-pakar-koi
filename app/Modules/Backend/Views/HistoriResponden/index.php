@@ -59,10 +59,10 @@
                             <?php } else { ?>
                                 <tr>
                                     <td colspan="25" class="text-end">
+                                        <p><strong>Nilai : <?= $jumlah; ?></strong></p>
                                         <p><strong>Jumlah Responden : <?= $jumlahResponden; ?></strong></p>
-                                        <p><strong>Jumlah : <?= $jumlah; ?></strong></p>
                                         <p><strong>Hasil SUS : <?= $sus; ?></strong></p>
-                                        <p><i>* SUS = Jumlah/Jumlah Responden *</i></p>
+                                        <p><i>* SUS = Nilai/Jumlah Responden *</i></p>
                                     </td>
                                 </tr>
                             <?php } ?>

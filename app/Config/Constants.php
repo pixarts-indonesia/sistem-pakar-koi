@@ -92,3 +92,12 @@ define('EVENT_PRIORITY_NORMAL', 100);
  * @deprecated Use \CodeIgniter\Events\Events::PRIORITY_HIGH instead.
  */
 define('EVENT_PRIORITY_HIGH', 10);
+
+if (isset($_SERVER['HTTP_HOST']) === TRUE) {
+    $host = $_SERVER['HTTP_HOST'];
+} else {
+    $host = 'ikan-koi.test';
+}
+
+$protocol = isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != 'off' ? 'https://'.$host : 'http://'.$host;
+defined('BASE') || define('BASE',$protocol);

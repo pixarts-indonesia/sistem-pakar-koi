@@ -28,7 +28,7 @@
                             </div>
                             <div class="form-group <?= (isset($params->password)) ? 'field--not-empty' : '' ?>">
                                 <?= form_label('Password', 'password'); ?>
-                                <?= form_input(['class' => 'form-control', 'type' => 'text', 'name' => 'password', 'value' => $params->password ?? '']) ?>
+                                <?= form_input(['class' => 'form-control', 'type' => 'password', 'name' => 'password', 'value' => $params->password ?? '']) ?>
                             </div>
                             
                             <div class="d-flex mb-5 align-items-center">

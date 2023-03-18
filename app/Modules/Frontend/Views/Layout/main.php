@@ -117,8 +117,7 @@ $uri = $request->uri->getSegment(1);
                                 <h1 class="text-white text-lg-left h2">Sistem Pakar</h1>
                                 <ul class="about_us">
                                     <li>
-                                        Muja muju UH II,<br>
-                                        Umbulharjo,<br>
+                                        Jl. Am. Sangaji No. 57,<br>
                                         Daerah Istemewa Yogyakarta
                                     </li>
                                 </ul>

@@ -11,14 +11,14 @@
                     <div class="row d_flex">
                         <div class="col-md-6">
                             <div class="text-bg">
-                                <h1>Sistem Pakar</h1>
-                                <p>Mendiagnosa penyakit ikan koi</p>
+                                <h1>Identifikasi Penyakit Ikan Koi Dengan Menggunakan Metode Case Based Reasoning</h1>
+                                <!-- <p>Mendiagnosa penyakit ikan koi</p> -->
                                 <a href="<?= base_url('diagnosa'); ?>">Diagnosa Sekarang </a>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="text_img">
-                                <img src="<?= base_url('assets/images/pct.png'); ?>" alt="#"/>
+                                <img src="<?= base_url('assets/images/cso-3.jpg'); ?>" alt="#"/>
                             </div>
                         </div>
                     </div>
@@ -35,7 +35,7 @@
         <div class="row d_flex">
             <div class="col-md-5">
                 <div class="team_img">
-                    <figure><img src="<?= base_url('assets/images/sco-1.png'); ?>" alt="#"/></figure>
+                    <figure><img src="<?= base_url('assets/images/sco-2.png'); ?>" alt="#"/></figure>
                 </div>
             </div>
             <div class="col-md-6 offset-md-1">
