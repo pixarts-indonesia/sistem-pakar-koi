@@ -1,4 +1,6 @@
-<?php namespace App\Modules\Backend\Models;
+<?php
+
+namespace App\Models;
 
 use CodeIgniter\Model;
 
@@ -58,11 +60,7 @@ class GejalaModel extends Model
     public function getKodeGejala()
     {
         $result = (object)$this->orderBy('id', 'DESC')->get()->getRowArray();
-        if (isset($result->kode_gejala)) {
-            $result = 'G'.preg_replace("/[^0-9]/", "", $result->kode_gejala)+1;
-        } else {
-            $result = 'G1';
-        }
+        $result = 'G'.preg_replace("/[^0-9]/", "", $result->kode_gejala)+1;
         return $result;
     }
 }

@@ -13,6 +13,7 @@ class PenyakitModel extends Model
     protected $allowedFields = [
         'kode_penyakit',
         'nama',
+        'solusi',
         'created_at',
         'updated_at',
         'deleted_at'
@@ -58,7 +59,11 @@ class PenyakitModel extends Model
     public function getKodePenyakit()
     {
         $result = (object)$this->orderBy('id', 'DESC')->get()->getRowArray();
-        $result = 'P'.preg_replace("/[^0-9]/", "", $result->kode_penyakit)+1;
+        if (isset($result->kode_penyakit)) {
+            $result = 'P'.preg_replace("/[^0-9]/", "", $result->kode_penyakit)+1;
+        } else {
+            $result = 'P1';
+        }
         return $result;
     }
 }

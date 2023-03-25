@@ -4,7 +4,7 @@ namespace App\Database\Migrations;
 
 use CodeIgniter\Database\Migration;
 
-class Penyakit extends Migration
+class MasterBobot extends Migration
 {
     public function up()
     {
@@ -15,19 +15,15 @@ class Penyakit extends Migration
                 'unsigned' => true,
                 'auto_increment' => true
             ],
-            'kode_penyakit' => [
-                'type' => 'VARCHAR',
-                'constraint' => '225',
-                'null' => true,
-            ],
             'nama' => [
                 'type' => 'VARCHAR',
                 'constraint' => '225',
                 'null' => true,
             ],
-            'solusi' => [
-                'type' => 'TEXT',
-                'null' => true
+            'nilai' => [
+                'type' => 'FLOAT',
+                'constraint' => 11,
+                'default' => 0,
             ],
             'created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP',
             'updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP',
@@ -41,11 +37,11 @@ class Penyakit extends Migration
 
         $this->forge->addKey('id', TRUE);
 
-        $this->forge->createTable('penyakit');
+        $this->forge->createTable('master_bobot');
     }
 
     public function down()
     {
-		$this->forge->dropTable('penyakit');
+		$this->forge->dropTable('master_bobot');
     }
 }

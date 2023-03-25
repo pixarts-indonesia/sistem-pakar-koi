@@ -10,6 +10,17 @@ $rules = new RulesModel;
 ?>
 <?= form_open('', ['method' => 'POST']); ?>
     <div class="form-group">
+        <?= form_label('Kode Gejala', 'nama'); ?>
+        <?= form_input([
+            'class' => 'form-control',
+            'type' => 'text',
+            'name' => 'kode_gejala',
+            'placeholder' => 'Masukan Kode Gejala',
+            'value' => $params->kode_gejala ?? '',
+            'autocomplete' => 'off'
+        ]) ?>
+    </div>
+    <div class="form-group">
         <?= form_label('Nama Gejala', 'nama'); ?>
         <?= form_input([
             'class' => 'form-control',

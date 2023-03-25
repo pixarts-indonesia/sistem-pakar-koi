@@ -35,6 +35,11 @@ class Rules extends Migration
                 'constraint' => 6,
                 'null' => true
             ],
+            'status' => [
+                'type' => 'SMALLINT',
+                'constraint' => 6,
+                'default' => 0,
+            ],
             'created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP',
             'updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP',
             'deleted_at' => [

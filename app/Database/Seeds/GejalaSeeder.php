@@ -33,19 +33,7 @@ class GejalaSeeder extends Seeder
             [
                 'kode_gejala' => 'G'.$i++,
                 'nama' => 'terdapat bintik putih yang ada di badan, sirip/ekor',
-            ],
-            [
-                'kode_gejala' => 'G'.$i++,
-                'nama' => 'ikan terlihat gelisah',
-            ],
-            [
-                'kode_gejala' => 'G'.$i++,
-                'nama' => 'ikan menyesekan badan ke dasar kolam/ikan sering lompat',
-            ],
-            [
-                'kode_gejala' => 'G'.$i++,
-                'nama' => 'terdapat beda jarum yang menempel pada bagian ikan',
-            ],
+            ], 
             [
                 'kode_gejala' => 'G'.$i++,
                 'nama' => 'sirip ekor rusak (terkikis)',
@@ -72,7 +60,23 @@ class GejalaSeeder extends Seeder
             ],
             [
                 'kode_gejala' => 'G'.$i++,
+                'nama' => 'ikan menyesekan badan ke dasar kolam/ikan sering lompat',
+            ],
+            [
+                'kode_gejala' => 'G'.$i++,
                 'nama' => 'terdapat parasit berbentuk bulat yang menempel di badan/sirip ikan',
+            ],
+            [
+                'kode_gejala' => 'G'.$i++,
+                'nama' => 'ikan terlihat gelisah',
+            ],
+            [
+                'kode_gejala' => 'G'.$i++,
+                'nama' => 'terdapat parasit berbentuk bulat yang menempel di badan/sirip ikan',
+            ],
+            [
+                'kode_gejala' => 'G'.$i++,
+                'nama' => 'terdapat beda jarum yang menempel pada bagian ikan',
             ],
         ];
         $this->db->table('gejala')->insertBatch($data);
