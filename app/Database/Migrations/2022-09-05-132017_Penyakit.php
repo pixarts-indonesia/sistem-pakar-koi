@@ -25,6 +25,10 @@ class Penyakit extends Migration
                 'constraint' => '225',
                 'null' => true,
             ],
+            'solusi' => [
+                'type' => 'TEXT',
+                'null' => true
+            ],
             'created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP',
             'updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP',
             'deleted_at' => [

@@ -30,6 +30,8 @@ $uri = $request->uri->getSegment(1);
         <!-- Tweaks for older IEs-->
         <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
+        
+        <script src="<?= base_url('assets/js/jquery-3.3.1.min.js'); ?>"></script>
     </head>
     <!-- body -->
     <body class="main-layout inner_header contact_page">
@@ -170,7 +172,6 @@ $uri = $request->uri->getSegment(1);
         <script src="<?= base_url('assets/js/jquery.min.js'); ?>"></script>
         <!-- <script src="<?php base_url('assets/js/popper.min.js'); ?>"></script> -->
         <script src="<?= base_url('assets/js/bootstrap.bundle.min.js'); ?>"></script>
-        <script src="<?= base_url('assets/js/jquery-3.3.1.min.js'); ?>"></script>
         <script src="<?= base_url('assets/js/bootstrap.min.js'); ?>"></script>
         <script src="<?= base_url('assets/js/main.js'); ?>"></script>
         <!-- sidebar -->

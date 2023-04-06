@@ -4,7 +4,7 @@ namespace App\Database\Migrations;
 
 use CodeIgniter\Database\Migration;
 
-class Rules extends Migration
+class MasterBobot extends Migration
 {
     public function up()
     {
@@ -15,25 +15,15 @@ class Rules extends Migration
                 'unsigned' => true,
                 'auto_increment' => true
             ],
-            // 'kode_rules' => [
-            //     'type' => 'VARCHAR',
-            //     'constraint' => '225',
-            //     'null' => true,
-            // ],
-            'kode_penyakit' => [
+            'nama' => [
                 'type' => 'VARCHAR',
                 'constraint' => '225',
                 'null' => true,
             ],
-            'kode_gejala' => [
-                'type' => 'VARCHAR',
-                'constraint' => '225',
-                'null' => true,
-            ],
-            'nilai_bobot' => [
-                'type' => 'SMALLINT',
-                'constraint' => 6,
-                'null' => true
+            'nilai' => [
+                'type' => 'FLOAT',
+                'constraint' => 11,
+                'default' => 0,
             ],
             'created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP',
             'updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP',
@@ -47,11 +37,11 @@ class Rules extends Migration
 
         $this->forge->addKey('id', TRUE);
 
-        $this->forge->createTable('rules');
+        $this->forge->createTable('master_bobot');
     }
 
     public function down()
     {
-		$this->forge->dropTable('rules');
+		$this->forge->dropTable('master_bobot');
     }
 }
