@@ -20,6 +20,7 @@ $routes->group('', ['namespace' => 'App\Modules\Frontend\Controllers'], function
 
 	/*** Route for Diagnosa ***/
 	$subroutes->add('diagnosa', 'Diagnosa::index');
+	$subroutes->get('diagnosa/hasil/(:any)', 'Diagnosa::hasil/$1');
 
 	/*** Route for Home ***/
 	$subroutes->add('/', 'Home::index');

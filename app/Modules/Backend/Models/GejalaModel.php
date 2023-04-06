@@ -58,7 +58,11 @@ class GejalaModel extends Model
     public function getKodeGejala()
     {
         $result = (object)$this->orderBy('id', 'DESC')->get()->getRowArray();
-        $result = 'G'.preg_replace("/[^0-9]/", "", $result->kode_gejala)+1;
+        if (isset($result->kode_gejala)) {
+            $result = 'G'.preg_replace("/[^0-9]/", "", $result->kode_gejala)+1;
+        } else {
+            $result = 'G1';
+        }
         return $result;
     }
 }

@@ -10,8 +10,16 @@ class DiagnosaModel extends Model
     protected $returnType     = array();
     protected $useSoftDeletes = true;
 
-    protected $allowedFields = [];
-
+    protected $allowedFields = [
+        'kode_histori',
+        'penyakit',
+        'gejala',
+        'nilai',
+        'created_by',
+        'created_at',
+        'updated_at',
+        'deleted_at'
+    ];
     protected $useTimestamps = false;
     protected $createdField  = "created_at";
     protected $updatedField  = "updated_a";
@@ -56,7 +64,7 @@ class DiagnosaModel extends Model
             $this->total[$key] = round(($value/$this->total_bobot[$key])*100, 0);
         }
 
-        return arsort($this->total);
+        return $this->sortData();
     }
 
     public function getRules()
@@ -70,5 +78,52 @@ class DiagnosaModel extends Model
     public function generateKode()
     {
         return 'DIK'.rand(1, 9).date('yjdGis').rand(0, 9);
+    }
+
+    public function sortData()
+    {
+        $_data = [];
+        $i = 0;
+        arsort($this->total);
+        foreach ($this->total as $key => $value) {
+            if ($i < 2) {
+                $_data[$key] = $value;
+            }
+            $i++;
+        }
+        return $_data;
+    }
+
+    public function getDataHistori($params)
+    {
+        $_data['penyakit'] = $this->getPenyakit(json_decode($params->penyakit));
+        $_data['gejala'] = $this->getGejala(json_decode($params->gejala));
+        $_data['nilai'] = json_decode($params->nilai);
+        return $_data;
+    }
+
+    public function getPenyakit($params) {
+        $i = 0;
+        foreach ($params as $key => $value) {
+            $penyakit = $this->db->table('penyakit')
+                      ->select('*')
+                      ->where(['kode_penyakit' => $value])
+                      ->get()->getResultArray();
+            $_data['nama'][$i] = $penyakit[0]['nama'];
+            $_data['solusi'][$i] = $penyakit[0]['solusi'];
+            $i++;
+        }
+        return $_data;
+    }
+
+    public function getGejala($params) {
+        foreach ($params as $key => $value) {
+            $gejala = $this->db->table('gejala')
+                      ->select('*')
+                      ->where(['kode_gejala' => $value])
+                      ->get()->getResultArray();
+            $_data[$key] = $gejala[0]['nama'];
+        }
+        return $_data;
     }
 }

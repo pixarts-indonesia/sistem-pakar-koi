@@ -29,8 +29,7 @@ class Histori extends Migration
                 'null' => true,
             ],
             'nilai' => [
-                'type' => 'SMALLINT',
-                'constraint' => 6,
+                'type' => 'TEXT',
                 'null' => true
             ],
             'created_by' => [

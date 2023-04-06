@@ -10,6 +10,17 @@ $rules = new RulesModel;
 ?>
 <?= form_open('', ['method' => 'POST']); ?>
     <div class="form-group">
+        <?= form_label('Kode Penyakit', 'nama'); ?>
+        <?= form_input([
+            'class' => 'form-control',
+            'type' => 'text',
+            'name' => 'kode_penyakit',
+            'placeholder' => 'Masukan Kode Penyakit',
+            'value' => $params->kode_penyakit ?? '',
+            'autocomplete' => 'off'
+        ]) ?>
+    </div>
+    <div class="form-group">
         <?= form_label('Nama Penyakit', 'nama'); ?>
         <?= form_input([
             'class' => 'form-control',
@@ -17,6 +28,17 @@ $rules = new RulesModel;
             'name' => 'nama',
             'placeholder' => 'Masukan Nama Penyakit',
             'value' => $params->nama ?? '',
+            'autocomplete' => 'off'
+        ]) ?>
+    </div>
+    <div class="form-group">
+        <?= form_label('Solusi', 'nama'); ?>
+        <?= form_input([
+            'class' => 'form-control',
+            'type' => 'text',
+            'name' => 'solusi',
+            'placeholder' => 'Masukan Solusi',
+            'value' => $params->solusi ?? '',
             'autocomplete' => 'off'
         ]) ?>
     </div>

@@ -54,17 +54,18 @@ class Penyakit extends Controller
 
         if ($validation) {
             $post = (object)$this->request->getPost();
-            $post->kode_penyakit = $rules->kode_penyakit ?? $this->models->getKodePenyakit();
             if ($this->models->save($post)) {
                 return redirect()->to('admin/penyakit')->with('success', "Data penyakit ($post->kode_penyakit) berhasil disimpan");
             }
             return redirect()->to('admin/penyakit/create')->with('error', 'Terjadi masalah silahkan ulang beberapa saat lagi');
         }
-
+        
+        $post = (object)$this->request->getPost();
+        $post->kode_penyakit = $rules->kode_penyakit ?? $this->models->getKodePenyakit();
         $data['title'] = 'Tambah';
         $data['value'] = 'create';
         $data['validation'] = ($this->request->getPost()) ? true : false;
-        $data['params'] = (object)$this->request->getPost();
+        $data['params'] = $post;
         $data['main'] = true;
         return view('App\Modules\Backend\Views\Penyakit\create', $data);
     }

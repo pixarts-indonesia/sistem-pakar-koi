@@ -54,17 +54,18 @@ class Gejala extends Controller
 
         if ($validation) {
             $post = (object)$this->request->getPost();
-            $post->kode_gejala = $rules->kode_gejala ?? $this->models->getKodeGejala();
             if ($this->models->save($post)) {
                 return redirect()->to('admin/gejala')->with('success', "Data gejala ($post->kode_gejala) berhasil disimpan");
             }
             return redirect()->to('admin/gejala/create')->with('error', 'Terjadi masalah silahkan ulang beberapa saat lagi');
         }
-
+        
+        $post = (object)$this->request->getPost();
+        $post->kode_gejala = $rules->kode_gejala ?? $this->models->getKodeGejala();
         $data['title'] = 'Tambah';
         $data['value'] = 'create';
         $data['validation'] = ($this->request->getPost()) ? true : false;
-        $data['params'] = (object)$this->request->getPost();
+        $data['params'] = $post;
         $data['main'] = true;
         return view('App\Modules\Backend\Views\Gejala\create', $data);
     }

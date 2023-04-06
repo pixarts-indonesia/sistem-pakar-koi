@@ -43,6 +43,10 @@
                                 <th><?= $models->nama.' ('.$models->kode_penyakit.')' ?></th>
                             </tr>
                             <tr>
+                                <th scope="col">Solusi</th>
+                                <th><?= $models->solusi ?></th>
+                            </tr>
+                            <tr>
                                 <th scope="col">Tanggal Tambah</th>
                                 <th><?= $models->created_at ?></th>
                             </tr>
