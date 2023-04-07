@@ -15,11 +15,11 @@ class Rules extends Migration
                 'unsigned' => true,
                 'auto_increment' => true
             ],
-            // 'kode_rules' => [
-            //     'type' => 'VARCHAR',
-            //     'constraint' => '225',
-            //     'null' => true,
-            // ],
+            'kode_rules' => [
+                'type' => 'VARCHAR',
+                'constraint' => '225',
+                'null' => true,
+            ],
             'kode_penyakit' => [
                 'type' => 'VARCHAR',
                 'constraint' => '225',

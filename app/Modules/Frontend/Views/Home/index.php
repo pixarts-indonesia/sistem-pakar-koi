@@ -16,11 +16,11 @@
                                 <a href="<?= base_url('diagnosa'); ?>">Diagnosa Sekarang </a>
                             </div>
                         </div>
-                        <div class="col-md-6">
+                        <!-- <div class="col-md-6">
                             <div class="text_img">
-                                <img src="<?= base_url('assets/images/cso-3.jpg'); ?>" alt="#"/>
+                                <img src="<?php base_url('assets/images/cso-3.jpg'); ?>" alt="#"/>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                     </div>
                 </div>

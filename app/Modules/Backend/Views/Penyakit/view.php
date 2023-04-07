@@ -47,6 +47,10 @@
                                 <th><?= $models->solusi ?></th>
                             </tr>
                             <tr>
+                                <th scope="col">Gambar</th>
+                                <th><?= $models->solusi ?></th>
+                            </tr>
+                            <tr>
                                 <th scope="col">Tanggal Tambah</th>
                                 <th><?= $models->created_at ?></th>
                             </tr>

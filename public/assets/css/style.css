@@ -1435,4 +1435,10 @@ opacity: .2; }
      margin: -8px 0px 0px 10px;
      color: hsl(220, 96%, 21%);
    }
+
+   div span {
+     font-size: 13px;
+     font-weight: bold;
+     color: black;
+   }
    

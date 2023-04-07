@@ -5,6 +5,7 @@ use CodeIgniter\Controller;
 use Config\Services;
 use App\Modules\Frontend\Models\DiagnosaModel;
 use App\Models\GejalaModel;
+use App\Modules\Frontend\Models\AkunModel;
 use App\Modules\Backend\Models\PenyakitModel;
 use App\Models\MasterBobotModel;
 
@@ -21,6 +22,7 @@ class Diagnosa extends Controller
         $this->gejala = new GejalaModel;
         $this->penyakit = new PenyakitModel;
         $this->master_bobot = new MasterBobotModel;
+        $this->user = new AkunModel;
     }
 
     public function index()
@@ -63,6 +65,7 @@ class Diagnosa extends Controller
             return redirect()->to('login')->with('error', 'Login terlebih dahulu');
         }
         $histori = $this->models->getData(['kode_histori' => $params]);
+        $data['user'] = $this->user->getData(['id' => $this->session->get('user')->id]);
         $data['hasil'] = $this->models->getDataHistori($histori);
         $data['title'] = 'Hasil Diagnosa';
         $data['main'] = true;
