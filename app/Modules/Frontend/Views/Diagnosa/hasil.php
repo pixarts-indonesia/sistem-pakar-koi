@@ -51,6 +51,7 @@
                     <div class="col-md-6 text-left">
                         <?php $i = 1; foreach ($hasil['penyakit']['nama'] as $key => $value) : ?>
                             <span><?= $i++.'. '.$value.' ('.$hasil['nilai'][$key].'%)'; ?></span>
+                            <a href="<?= base_url("assets/images/product/".$hasil['penyakit']['img'][$key]) ?>" class="btn btn-xs btn-primary text-white" target="_blank">Gambar</a>
                             <br>
                         <?php endforeach; ?>
                     </div>

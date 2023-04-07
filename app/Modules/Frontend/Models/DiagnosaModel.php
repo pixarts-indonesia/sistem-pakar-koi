@@ -110,6 +110,7 @@ class DiagnosaModel extends Model
                       ->where(['kode_penyakit' => $value])
                       ->get()->getResultArray();
             $_data['nama'][$i] = $penyakit[0]['nama'];
+            $_data['img'][$i] = $penyakit[0]['img'];
             $_data['solusi'][$i] = $penyakit[0]['solusi'];
             $i++;
         }

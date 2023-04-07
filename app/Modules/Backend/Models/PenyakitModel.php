@@ -14,6 +14,7 @@ class PenyakitModel extends Model
         'kode_penyakit',
         'nama',
         'solusi',
+        'img',
         'created_at',
         'updated_at',
         'deleted_at'
@@ -60,7 +61,8 @@ class PenyakitModel extends Model
     {
         $result = (object)$this->orderBy('id', 'DESC')->get()->getRowArray();
         if (isset($result->kode_penyakit)) {
-            $result = 'P'.preg_replace("/[^0-9]/", "", $result->kode_penyakit)+1;
+            $kode = preg_replace("/[^0-9]/", "", $result->kode_penyakit)+1;
+            $result = 'P'.$kode;
         } else {
             $result = 'P1';
         }

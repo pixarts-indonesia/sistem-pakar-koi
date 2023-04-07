@@ -1,6 +1,16 @@
 <?= $this->extend('App\Modules\Backend\Views\Layout\main') ?>
 
 <?= $this->section('content') ?>
+    <script>
+        $(document).ready(function() {
+            $("#upload-gambar").click(function() {
+                $("#file-gambar").trigger('click');
+            });
+            $("#file-gambar").change(function() {
+                $('form').submit();
+            });
+        });
+    </script>
     <div class="page-breadcrumb">
         <div class="row align-items-center">
             <div class="col-6">
@@ -21,6 +31,13 @@
             <a href="<?= base_url('admin/penyakit') ?>" class="btn btn-sm btn-light">Kembali</a>
             <a href="<?= base_url('admin/penyakit/delete/'.$models->id) ?>" class="btn btn-sm btn-danger text-white">Hapus</a>
             <a href="<?= base_url('admin/penyakit/update/'.$models->id) ?>" class="btn btn-sm btn-success text-white">Ubah</a>
+            <button id="upload-gambar" class="btn btn-sm btn-info text-white">Upload Gambar</button>
+            <form method="post" action="<?= base_url('admin/penyakit/upload'); ?>" enctype="multipart/form-data" style="display: none;">
+                <input type="text" name="id" value="<?=$models->id?>">
+                <input type="text" name="name" value="<?=$models->nama?>">
+                <input type="file" name="gambar" id="file-gambar">
+                <input type="submit" value="Upload">
+            </form>
         </div>
         <div class="col-12">
             <div class="card">
@@ -47,15 +64,16 @@
                                 <th><?= $models->solusi ?></th>
                             </tr>
                             <tr>
-                                <th scope="col">Gambar</th>
-                                <th><?= $models->solusi ?></th>
-                            </tr>
-                            <tr>
                                 <th scope="col">Tanggal Tambah</th>
                                 <th><?= $models->created_at ?></th>
                             </tr>
                         </thead>
                     </table>
+                    <div class="px-3 pb-3">
+                        <h1>Gambar</h1>
+                        <hr>
+                        <img style="width: 50%;" src="<?= base_url("assets/images/product/$models->img") ?>" alt="<?= $models->img ?>"/>
+                    </div>
                 </div>
             </div>
         </div>

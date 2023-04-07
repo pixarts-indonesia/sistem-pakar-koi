@@ -65,6 +65,9 @@ class Diagnosa extends Controller
             return redirect()->to('login')->with('error', 'Login terlebih dahulu');
         }
         $histori = $this->models->getData(['kode_histori' => $params]);
+        if (!isset($histori->id)) {
+            return redirect()->to('/diagnosa')->with('error', 'Diagnosa terlebih dahulu');
+        }
         $data['user'] = $this->user->getData(['id' => $this->session->get('user')->id]);
         $data['hasil'] = $this->models->getDataHistori($histori);
         $data['title'] = 'Hasil Diagnosa';

@@ -29,6 +29,10 @@ class Penyakit extends Migration
                 'type' => 'TEXT',
                 'null' => true
             ],
+            'img' => [
+                'type' => 'TEXT',
+                'null' => true
+            ],
             'created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP',
             'updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP',
             'deleted_at' => [

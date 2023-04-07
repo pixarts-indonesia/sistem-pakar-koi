@@ -1441,4 +1441,10 @@ opacity: .2; }
      font-weight: bold;
      color: black;
    }
+   .btn-group-xs>.btn, .btn-xs {
+     padding: .25rem .5rem;
+     font-size: 0.520rem;
+     line-height: 1.5;
+     border-radius: .2rem;
+   }
    

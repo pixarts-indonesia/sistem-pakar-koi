@@ -20,6 +20,7 @@
     <link href="<?= base_url('assets/libs/chartist-plugin-tooltips/dist/chartist-plugin-tooltip.css'); ?>" rel="stylesheet">
     <!-- Custom CSS -->
     <link href="<?= base_url('assets/dist/css/style.min.css'); ?>" rel="stylesheet">
+    <script src="<?= base_url('assets/js/jquery-3.3.1.min.js'); ?>"></script>
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -126,7 +127,6 @@
         </div>
     </div>
     <script src="<?= base_url('assets/libs/jquery/dist/jquery.min.js'); ?>"></script>
-    <script src="<?= base_url('assets/js/jquery-3.3.1.min.js'); ?>"></script>
     <script src="<?= base_url('assets/js/bootstrap.min.js'); ?>"></script>
     <!-- Bootstrap tether Core JavaScript -->
     <script src="<?= base_url('assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js'); ?>"></script>

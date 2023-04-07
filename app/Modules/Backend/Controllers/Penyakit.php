@@ -108,4 +108,30 @@ class Penyakit extends Controller
         );
         return view('App\Modules\Backend\Views\Penyakit\view', $data);
     }
+
+    public function upload()
+    {
+        $gambar = $this->request->getFile('gambar');
+        $fileName = str_replace(" ", "-", $this->request->getPost('name')).'.png';
+        $id = $this->request->getPost('id');
+        $filePath = './assets/images/product/'.$fileName;
+    
+        if ($gambar->isValid() && !$gambar->hasMoved()) {
+            if (file_exists($filePath)) {
+                unlink($filePath);
+            }
+            $post = (object)[
+                'img' => $fileName
+            ];
+            if ($gambar->move('./assets/images/product', $fileName) && $this->models->update($id, $post)) {
+                return redirect()->to('admin/penyakit/view/'.$id)->with('success', "Gambar berhasil diunggah");
+            } else {
+                return redirect()->to('admin/penyakit/view/'.$id)->with('success', "Gambar gagal diunggah");
+            }
+        } else {
+            return redirect()->to('admin/penyakit/view/'.$id)->with('success', "Gambar tidak ditemukan");
+        }
+    }
+    
+
 }

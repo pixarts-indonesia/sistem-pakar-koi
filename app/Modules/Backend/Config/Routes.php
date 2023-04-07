@@ -34,6 +34,7 @@ $routes->group('admin', ['namespace' => 'App\Modules\Backend\Controllers'], func
 	$subroutes->match(['add', 'delete'], 'penyakit/delete/(:num)', 'Penyakit::delete/$1');
 	$subroutes->match(['add', 'post'], 'penyakit/create', 'Penyakit::create');
 	$subroutes->match(['add', 'put'], 'penyakit/update/(:num)', 'Penyakit::update/$1');
+	$subroutes->match(['add', 'post'], 'penyakit/upload', 'Penyakit::upload');
 
 	/*** Route for Responden ***/
 	$subroutes->add('responden', 'Responden::index');

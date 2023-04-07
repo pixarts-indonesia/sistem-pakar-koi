@@ -59,7 +59,8 @@ class GejalaModel extends Model
     {
         $result = (object)$this->orderBy('id', 'DESC')->get()->getRowArray();
         if (isset($result->kode_gejala)) {
-            $result = 'G'.preg_replace("/[^0-9]/", "", $result->kode_gejala)+1;
+            $kode = preg_replace("/[^0-9]/", "", $result->kode_gejala)+1;
+            $result = 'G'.$kode;
         } else {
             $result = 'G1';
         }
