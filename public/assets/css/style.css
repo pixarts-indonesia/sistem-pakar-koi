@@ -6272,4 +6272,9 @@ del {
   right: 14px;
 }
 
+.btn-primary:hover {
+  color: #000000 !important;
+  border: 1px solid #ff2143 !important;
+}
+
 /*# sourceMappingURL=style.css.map */
