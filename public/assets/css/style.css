@@ -1777,11 +1777,6 @@ hero-btn {
   background: #000000;
 }
 
-/* line 985, C:/Users/HP/Desktop/264.Business_HTML/HTML/assets/scss/_common.scss */
-.section-tittle h2 {
-  color: #fff !important;
-}
-
 @media (max-width: 575px) {
 
   /* line 985, C:/Users/HP/Desktop/264.Business_HTML/HTML/assets/scss/_common.scss */
@@ -6364,6 +6359,14 @@ del {
 
 .text-primary {
   color: #ff2143;
+}
+
+.text-black {
+  color: #000 !important;
+}
+
+.text-white {
+  color: #fff !important;
 }
 
 /*# sourceMappingURL=style.css.map */

@@ -88,7 +88,7 @@
                 <div class="right-caption">
                     <!-- Section Tittle -->
                     <div class="section-tittle section-tittle2 mb-50">
-                        <h2>Sistem Pakar</h2>
+                        <h2 class="text-white">Sistem Pakar</h2>
                     </div>
                     <div class="support-caption">
                         <p class="pera-top">Mengidentifikasi masalah penyakit koi yang kamu miliki sangatlah penting, kamu akan tau penanganan yang harus kamu lakukan.</p>
