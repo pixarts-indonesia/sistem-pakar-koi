@@ -170,9 +170,9 @@ $uri = $request->uri->getSegment(1);
         <!-- end footer -->
     <?php endif; ?>
     <!-- JS here -->
-    <script src="<?= base_url('assets/js/vendor/modernizr-3.5.0.min.js') ?>"></script>
+    <script src="<?= base_url('assets/js/modernizr-3.5.0.min.js') ?>"></script>
     <!-- Jquery, Popper, Bootstrap -->
-    <script src="<?= base_url('assets/js/vendor/jquery-1.12.4.min.js') ?>"></script>
+    <script src="<?= base_url('assets/js/jquery-1.12.4.min.js') ?>"></script>
     <script src="<?= base_url('assets/js/popper.min.js') ?>"></script>
     <script src="<?= base_url('assets/js/bootstrap.min.js') ?>"></script>
     <!-- Jquery Mobile Menu -->
