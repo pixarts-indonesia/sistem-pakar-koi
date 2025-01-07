@@ -8,76 +8,69 @@ class GejalaSeeder extends Seeder
 {
     public function run()
     {
+        $code = 'G';
         $i = 1;
         $data = [
             [
-                'kode_gejala' => 'G'.$i++,
-                'nama' => 'ikan terlihat lemas',
+                'kode_gejala' => $code . $i++,
+                'nama' => 'mata berkabut',
             ],
             [
-                'kode_gejala' => 'G'.$i++,
-                'nama' => 'ikan tidak napsu makan',
+                'kode_gejala' => $code . $i++,
+                'nama' => 'terdapat cacing yang menempel pada tubuh',
             ],
             [
-                'kode_gejala' => 'G'.$i++,
-                'nama' => 'ikan telihat menyendiri',
+                'kode_gejala' => $code . $i++,
+                'nama' => 'menurunnya kekebalan tubuh / lemah',
             ],
             [
-                'kode_gejala' => 'G'.$i++,
-                'nama' => 'kesulitan bernapas',
+                'kode_gejala' => $code . $i++,
+                'nama' => 'sering menggesekkan tubuh pada dinding',
             ],
             [
-                'kode_gejala' => 'G'.$i++,
-                'nama' => 'terdapat bintik/selaput putih di insang',
+                'kode_gejala' => $code . $i++,
+                'nama' => 'terdapat bintik-bintik hitam (bukan corak)',
             ],
             [
-                'kode_gejala' => 'G'.$i++,
-                'nama' => 'terdapat bintik putih yang ada di badan, sirip/ekor',
-            ], 
-            [
-                'kode_gejala' => 'G'.$i++,
-                'nama' => 'sirip ekor rusak (terkikis)',
+                'kode_gejala' => $code . $i++,
+                'nama' => 'terdapat bintik-bintik putih (bukan corak)',
             ],
             [
-                'kode_gejala' => 'G'.$i++,
-                'nama' => 'badan memar dan sisik copot',
+                'kode_gejala' => $code . $i++,
+                'nama' => 'sisik yang mulai tanggal dari badan ikan',
             ],
             [
-                'kode_gejala' => 'G'.$i++,
-                'nama' => 'badan ikan mengembung dan sisik seperti berdiri (seperti kulit nanas)',
+                'kode_gejala' => $code . $i++,
+                'nama' => 'badan gembur',
             ],
             [
-                'kode_gejala' => 'G'.$i++,
-                'nama' => 'ikan berenang tidak tenang',
+                'kode_gejala' => $code . $i++,
+                'nama' => 'kesulitan dalam berenang',
             ],
             [
-                'kode_gejala' => 'G'.$i++,
-                'nama' => 'ada guratan merah di badan di dekat sirip atau ekor',
+                'kode_gejala' => $code . $i++,
+                'nama' => 'perut membengkak',
             ],
             [
-                'kode_gejala' => 'G'.$i++,
-                'nama' => 'sirip/ekor mengalami gripis',
+                'kode_gejala' => $code . $i++,
+                'nama' => 'produksi lendir berlebih',
             ],
             [
-                'kode_gejala' => 'G'.$i++,
-                'nama' => 'ikan menyesekan badan ke dasar kolam/ikan sering lompat',
+                'kode_gejala' => $code . $i++,
+                'nama' => 'mata menonjol',
             ],
             [
-                'kode_gejala' => 'G'.$i++,
-                'nama' => 'terdapat parasit berbentuk bulat yang menempel di badan/sirip ikan',
+                'kode_gejala' => $code . $i++,
+                'nama' => 'badan ikan kurus',
             ],
             [
-                'kode_gejala' => 'G'.$i++,
-                'nama' => 'ikan terlihat gelisah',
+                'kode_gejala' => $code . $i++,
+                'nama' => 'tulang sirip dan ekor ikan menjadi buram',
             ],
             [
-                'kode_gejala' => 'G'.$i++,
-                'nama' => 'terdapat parasit berbentuk bulat yang menempel di badan/sirip ikan',
-            ],
-            [
-                'kode_gejala' => 'G'.$i++,
-                'nama' => 'terdapat beda jarum yang menempel pada bagian ikan',
-            ],
+                'kode_gejala' => $code . $i++,
+                'nama' => 'sirip dan ekor mulai membusuk',
+            ]
         ];
         $this->db->table('gejala')->insertBatch($data);
     }
