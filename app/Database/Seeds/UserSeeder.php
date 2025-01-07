@@ -11,11 +11,11 @@ class UserSeeder extends Seeder
         $data = [
             [
                 'id' => 1,
-                'username' => 'andri007',
-                'nama' => 'ANDRI RIZKI SAPUTRA',
-                'email' => 'biyogidofficial@gmail.com',
-                'telp' => '082322525083',
-                'alamat' => 'DIY',
+                'username' => 'lawliet007',
+                'nama' => 'Lawliet',
+                'email' => 'lawliet@gmail.com',
+                'telp' => '082355625362',
+                'alamat' => 'ID',
                 'password' => password_hash('saras008', PASSWORD_DEFAULT),
                 'level' => 2
             ],
