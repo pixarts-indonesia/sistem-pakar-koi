@@ -35,7 +35,7 @@
                             <input type="checkbox" checked="checked" />
                             <div class="control__indicator"></div>
                         </label>
-                        <span class="ml-auto"><a href="<?= base_url('forgot-password'); ?>" class="forgot-pass">Lupa kata sandi</a></span>
+                        <span class="ml-auto"><a href="<?= base_url('forgot-password'); ?>" class="forgot-pass" style="color: #000000;">Lupa kata sandi</a></span>
                     </div>
                     <button type="submit" class="btn text-white btn-block btn-primary" style="margin-bottom: 1.5rem;">
                         <span class="icon-login"></span> Login
