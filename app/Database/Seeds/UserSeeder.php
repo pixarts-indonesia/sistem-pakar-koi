@@ -21,11 +21,11 @@ class UserSeeder extends Seeder
             ],
             [
                 'id' => 2,
-                'username' => 'admin-master',
-                'nama' => 'Admin Master',
-                'email' => 'admin-master@gmail.com',
-                'telp' => '082322525083',
-                'alamat' => 'DIY',
+                'username' => 'admin',
+                'nama' => 'Admin',
+                'email' => 'admin@ikan-koi.pixarts.my.id.com',
+                'telp' => '082352325233',
+                'alamat' => 'ID',
                 'password' => password_hash('saras008', PASSWORD_DEFAULT),
                 'level' => 1
             ]
